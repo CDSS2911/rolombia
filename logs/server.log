@@ -177,3 +177,139 @@
 [2026-09-09 19:54:59] Server shutdown as requested by resource sql (MySQL module missing.)
 [2026-09-09 19:54:59] Start up of resource sql cancelled by script
 [2026-09-09 19:54:59] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6
+==================================================================
+= Server name      : Default MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..RVER/server/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22005
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[2026-09-09 19:55:54] Resources: 97 loaded, 0 failed
+[2026-09-09 19:55:54] MODULE: Loaded "MySQL 5.0 database module" (0.50) by "Alberto Alonso <rydencillo@gmail.com>"
+[2026-09-09 19:55:54] Starting resources...
+[2026-09-09 19:55:54] Server minclientversion is now 1.5.2-9.07903
+[2026-09-09 19:55:54] Server minclientversion is now 1.5.4
+[2026-09-09 19:55:54] startResource: Resource '3dtext' started
+[2026-09-09 19:55:54] WARNING: admin/util.lua(Line 252) [Server] doesPedHaveJetPack is deprecated and may not work in future versions. Please replace with isPedWearingJetpack.
+[2026-09-09 19:55:54] WARNING: admin/util.lua(Line 253) [Server] removePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[2026-09-09 19:55:54] WARNING: admin/util.lua(Line 256) [Server] givePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[2026-09-09 19:55:54] Some files in 'admin' use deprecated functions.
+[2026-09-09 19:55:54] Use the 'upgrade' command to perform a basic upgrade of resources.
+[2026-09-09 19:55:54] startResource: Resource 'admin' started
+[2026-09-09 19:55:54] startResource: Resource 'ajax' started
+[2026-09-09 19:55:54] startResource: Resource 'ammunation' started
+[2026-09-09 19:55:54] startResource: Resource 'anims' started
+[2026-09-09 19:55:54] startResource: Resource 'anticheat' started
+[2026-09-09 19:55:54] startResource: Resource 'armas' started
+[2026-09-09 19:55:54] startResource: Resource 'artificiales' started
+[2026-09-09 19:55:54] startResource: Resource 'asistencia' started
+[2026-09-09 19:55:55] startResource: Resource 'bank' started
+[2026-09-09 19:55:55] startResource: Resource 'barreras' started
+[2026-09-09 19:55:55] startResource: Resource 'basket' started
+[2026-09-09 19:55:55] startResource: Resource 'bloqueos' started
+[2026-09-09 19:55:55] startResource: Resource 'bone_attach' started
+[2026-09-09 19:55:55] startResource: Resource 'browser' started
+[2026-09-09 19:55:55] startResource: Resource 'cascos' started
+[2026-09-09 19:55:55] startResource: Resource 'casino' started
+[2026-09-09 19:55:55] startResource: Resource 'chat' started
+[2026-09-09 19:55:55] startResource: Resource 'clubsex' started
+[2026-09-09 19:55:55] startResource: Resource 'colorblender' started
+[2026-09-09 19:55:55] startResource: Resource 'conce' started
+[2026-09-09 19:55:55] startResource: Resource 'condiciones' started
+[2026-09-09 19:55:55] startResource: Resource 'constructora' started
+[2026-09-09 19:55:55] startResource: Resource 'customblips' started
+[2026-09-09 19:55:55] startResource: Resource 'descargadorv2' started
+[2026-09-09 19:55:55] startResource: Resource 'eidiomas' started
+[2026-09-09 19:55:55] startResource: Resource 'elementbrowser' started
+[2026-09-09 19:55:55] startResource: Resource 'elevadores' started
+[2026-09-09 19:55:55] startResource: Resource 'factions' started
+[2026-09-09 19:55:55] startResource: Resource 'firstlogin' started
+[2026-09-09 19:55:55] startResource: Resource 'firstperson' started
+[2026-09-09 19:55:55] startResource: Resource 'foro' started
+[2026-09-09 19:55:55] startResource: Resource 'freecam' started
+[2026-09-09 19:55:55] startResource: Resource 'glue' started
+[2026-09-09 19:55:55] startResource: Resource 'gobierno' started
+[2026-09-09 19:55:55] Server minclientversion is now 1.5.6-9.14489
+[2026-09-09 19:55:55] startResource: Resource 'guieditor' started
+[2026-09-09 19:55:55] startResource: Resource 'hud' started
+[2026-09-09 19:55:55] startResource: Resource 'ilegales' started
+[2026-09-09 19:55:55] startResource: Resource 'interiors' started
+[2026-09-09 19:55:55] startResource: Resource 'items' started
+[2026-09-09 19:55:55] startResource: Resource 'jail' started
+[2026-09-09 19:55:55] startResource: Resource 'job-basurero' started
+[2026-09-09 19:55:55] startResource: Resource 'job-butanero' started
+[2026-09-09 19:55:55] startResource: Resource 'job-limpieza' started
+[2026-09-09 19:55:55] startResource: Resource 'job-pescador' started
+[2026-09-09 19:55:55] startResource: Resource 'job-repartidor' started
+[2026-09-09 19:55:55] startResource: Resource 'jobs' started
+[2026-09-09 19:55:55] startResource: Resource 'lavadero' started
+[2026-09-09 19:55:55] startResource: Resource 'licencias' started
+[2026-09-09 19:55:55] startResource: Resource 'loginpanel' started
+[2026-09-09 19:55:55] startResource: Resource 'logs' started
+[2026-09-09 19:55:55] startResource: Resource 'mapas' started
+[2026-09-09 19:55:55] startResource: Resource 'mascotas' started
+[2026-09-09 19:55:55] startResource: Resource 'medico' started
+[2026-09-09 19:55:55] startResource: Resource 'mochilas' started
+[2026-09-09 19:55:56] startResource: Resource 'muebles' started
+[2026-09-09 19:55:56] startResource: Resource 'objetivos' started
+[2026-09-09 19:55:56] startResource: Resource 'payday' started
+[2026-09-09 19:55:56] startResource: Resource 'peajes' started
+[2026-09-09 19:55:56] startResource: Resource 'pedshadow' started
+[2026-09-09 19:55:56] startResource: Resource 'performancebrowser' started
+[2026-09-09 19:55:56] startResource: Resource 'periodicos' started
+[2026-09-09 19:55:56] startResource: Resource 'players_auxiliar' started
+[2026-09-09 19:55:56] startResource: Resource 'policia' started
+[2026-09-09 19:55:56] startResource: Resource 'prestamos' started
+[2026-09-09 19:55:56] startResource: Resource 'radar' started
+[2026-09-09 19:55:56] startResource: Resource 'radiomp3' started
+[2026-09-09 19:55:56] startResource: Resource 'realdriveby' started
+[2026-09-09 19:55:56] startResource: Resource 'realismo' started
+[2026-09-09 19:55:56] startResource: Resource 'repartos' started
+[2026-09-09 19:55:56] startResource: Resource 'resourcebrowser' started
+[2026-09-09 19:55:56] startResource: Resource 'resourcemanager' started
+[2026-09-09 19:55:56] startResource: Resource 'robos' started
+[2026-09-09 19:55:56] startResource: Resource 'ropas' started
+[2026-09-09 19:55:56] startResource: Resource 'ruedas' started
+[2026-09-09 19:55:56] startResource: Resource 'runcode' started
+[2026-09-09 19:55:56] startResource: Resource 'seniales' started
+[2026-09-09 19:55:56] startResource: Resource 'server' started
+[2026-09-09 19:55:56] startResource: Resource 'shops' started
+[2026-09-09 19:55:56] startResource: Resource 'sirenas' started
+[2026-09-09 19:55:56] startResource: Resource 'sqlforo' started
+[2026-09-09 19:55:56] startResource: Resource 'sqllogin' started
+[2026-09-09 19:55:56] startResource: Resource 'teleports' started
+[2026-09-09 19:55:56] startResource: Resource 'tiempo' started
+[2026-09-09 19:55:56] startResource: Resource 'tlf' started
+[2026-09-09 19:55:56] startResource: Resource 'transporte' started
+[2026-09-09 19:55:56] startResource: Resource 'vehicles_auxiliar' started
+[2026-09-09 19:55:56] startResource: Resource 'voz' started
+[2026-09-09 19:55:56] startResource: Resource 'webadmin' started
+[2026-09-09 19:55:56] startResource: Resource 'webmap' started
+[2026-09-09 19:55:56] startResource: Resource 'zona' started
+[2026-09-09 19:55:56] Querying MTA master server... success! 
+[2026-09-09 19:55:56] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[2026-09-09 19:55:56] WARNING: <owner_email_address> not set
+[2026-09-09 19:55:56] Server started and is ready to accept connections!
+[2026-09-09 19:55:56] To stop the server, type 'shutdown' or press Ctrl-C
+[2026-09-09 19:55:56] Type 'help' for a list of commands.
+[2026-09-09 19:55:56] WARNING: sql\mysql.lua:39: ATENCIÓN: Se ha conectado usando el usuario root, y no es recomendable.
+[2026-09-09 19:55:56]               _                                    _ _
+[2026-09-09 19:55:56]              | |                                  | (_)
+[2026-09-09 19:55:56]     _ __ ___ | |_ __ _   _ __   __ _ _ __ __ _  __| |_ ___  ___
+[2026-09-09 19:55:56]    | '_ ` _ \| __/ _` | | '_ \ / _` | '__/ _` |/ _` | / __|/ _ \
+[2026-09-09 19:55:56]    | | | | | | || (_| | | |_) | (_| | | | (_| | (_| | \__ \  __/
+[2026-09-09 19:55:56]    |_| |_| |_|\__\__,_| | .__/ \__,_|_|  \__,_|\__,_|_|___/\___|
+[2026-09-09 19:55:56]                         | |
+[2026-09-09 19:55:56]                         |_| v2. DownTown Roleplay 
+[2026-09-09 19:55:56]       Recuerda estar al tanto de las posibles actualizaciones.                            
+[2026-09-09 19:55:56]                https://github.com/Succionadora/DownTown-RolePlay                                   
+[2026-09-09 19:55:56]       Copyright 2020. Todos los derechos reservados bajo GPL-3.0                          
+[2026-09-09 19:59:12] Server minclientversion is now 1.6.0-9.24109.0
+[2026-09-09 19:59:12] CONNECT: NeurusGM connected (IP: 127.0.0.1  Serial: 8A276B61A377171CA8C77FD182B34E53  Version: 1.6.0-9.24144.0)
+[2026-09-09 19:59:15] JOIN: NeurusGM joined the game (IP: 127.0.0.1)
