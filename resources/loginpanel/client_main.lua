@@ -1,305 +1,370 @@
-local sX, sY	= guiGetScreenSize()
-local x, y		= sX/1366,sY/768
-local fontsize	= sX/1920
-local loginError = ""
+local sX, sY = guiGetScreenSize()
+local scale = math.max(0.85, math.min(1.15, sX / 1600))
 
-local lp = {
-			hasAccount		= true,
-			blur			= {
-							shader 			= dxCreateShader("img/blur.fx"),
-							screensource	= dxCreateScreenSource(sX,sY),
-			},
-			
-			login			= {
-							showpass		= false,
-							savepass		= false,
-			},
-			
-			register 		= {
-							
-			},
-			
-			forgotpass		= {
-			
-			},
-
+local loginMusic = {
+	url = "", -- Ejemplo: "https://tusitio.com/login.mp3" o "audio/login.mp3"
+	volume = 0.35,
+	loop = true
 }
+
+local state = {
+	mode = "login",
+	hasAccount = false,
+	error = "",
+	errorTick = 0,
+	startTick = getTickCount(),
+	music = nil,
+	musicMuted = false,
+	blur = {
+		shader = dxCreateShader("img/blur.fx"),
+		screensource = dxCreateScreenSource(sX, sY)
+	},
+	login = {},
+	register = {},
+	forgotpass = {},
+	buttons = {}
+}
+
+local function sx(value)
+	return value * scale
+end
+
+local function panelRect()
+	local w = math.min(sX - sx(48), sx(920))
+	local h = math.min(sY - sx(48), sx(520))
+	return (sX - w) / 2, (sY - h) / 2, w, h
+end
+
+local function setLoginError(text, timeout)
+	state.error = tostring(text or "")
+	state.errorTick = getTickCount() + (timeout or 3500)
+end
+
+local function resetLoginError()
+	state.error = ""
+	state.errorTick = 0
+end
+
+local function setBusy(button, busy)
+	if button and isElement(button) then
+		dxSetButtonEnabled(button, not busy)
+	end
+end
+
+local function startLoginMusic()
+	if loginMusic.url == "" or state.musicMuted or isElement(state.music) then
+		return
+	end
+
+	state.music = playSound(loginMusic.url, loginMusic.loop)
+	if isElement(state.music) then
+		setSoundVolume(state.music, loginMusic.volume or 0.35)
+	end
+end
+
+local function stopLoginMusic()
+	if isElement(state.music) then
+		stopSound(state.music)
+	end
+	state.music = nil
+end
+
+local function toggleLoginMusic()
+	state.musicMuted = not state.musicMuted
+	if state.musicMuted then
+		stopLoginMusic()
+	else
+		startLoginMusic()
+	end
+end
+
+local function drawBlur()
+	if isElement(state.blur.shader) and isElement(state.blur.screensource) then
+		dxUpdateScreenSource(state.blur.screensource)
+		dxSetShaderValue(state.blur.shader, "ScreenSource", state.blur.screensource)
+		dxSetShaderValue(state.blur.shader, "UVSize", sX, sY)
+		dxSetShaderValue(state.blur.shader, "BlurStrength", 7)
+		dxDrawImage(0, 0, sX, sY, state.blur.shader)
+	else
+		dxDrawRectangle(0, 0, sX, sY, tocolor(10, 13, 18, 235))
+	end
+end
+
+local function drawBackground()
+	local tick = getTickCount() - state.startTick
+	local pulse = (math.sin(tick / 900) + 1) / 2
+	dxDrawRectangle(0, 0, sX, sY, tocolor(9, 11, 16, 215))
+	dxDrawRectangle(0, 0, sX, sY, tocolor(26, 36, 46, 90 + pulse * 35))
+
+	for i = 1, 9 do
+		local x = ((tick / (28 + i * 3)) + i * 173) % (sX + sx(140)) - sx(70)
+		local y = (sY * 0.12) + ((i * 73) % math.max(1, sY * 0.78))
+		local alpha = 18 + (i % 3) * 8
+		dxDrawRectangle(x, y, sx(92), 1, tocolor(255, 255, 255, alpha))
+	end
+end
+
+local function drawHeader(px, py, pw)
+	dxDrawText("Rolombia Roleplay", px, py, px + pw, py + sx(48), tocolor(255, 255, 255, 255), sx(1.8), "default-bold", "left", "center")
+	dxDrawText("Los Santos abierto. Crea tu cuenta o entra con tu usuario.", px, py + sx(42), px + pw, py + sx(70), tocolor(190, 200, 210, 235), sx(1), "default", "left", "center")
+end
+
+local function drawTabs(px, py, pw)
+	local tabW = sx(132)
+	local activeLogin = state.mode == "login"
+	local activeRegister = state.mode == "register"
+	dxDrawRectangle(px, py, tabW, sx(34), activeLogin and tocolor(43, 126, 219, 230) or tocolor(255, 255, 255, 28))
+	dxDrawRectangle(px + tabW + sx(8), py, tabW, sx(34), activeRegister and tocolor(43, 126, 219, 230) or tocolor(255, 255, 255, 28))
+	dxDrawText("Entrar", px, py, px + tabW, py + sx(34), tocolor(255, 255, 255, 255), sx(1), "default-bold", "center", "center")
+	dxDrawText("Registro", px + tabW + sx(8), py, px + tabW * 2 + sx(8), py + sx(34), tocolor(255, 255, 255, 255), sx(1), "default-bold", "center", "center")
+
+	if getKeyState("mouse1") then
+		if isMouseInPosition(px, py, tabW, sx(34)) then
+			state.mode = "login"
+		elseif isMouseInPosition(px + tabW + sx(8), py, tabW, sx(34)) then
+			state.mode = "register"
+		end
+	end
+end
+
+local function drawStatus(px, py, pw)
+	if state.error ~= "" then
+		if state.errorTick > 0 and getTickCount() > state.errorTick then
+			resetLoginError()
+			return
+		end
+		dxDrawText(state.error, px, py, px + pw, py + sx(34), tocolor(255, 225, 225, 255), sx(1), "default-bold", "center", "center", true, true)
+	end
+end
+
+local function drawLogin()
+	local px, py, pw, ph = panelRect()
+	local leftX = px + sx(42)
+	local rightX = px + pw * 0.52
+	local contentY = py + sx(122)
+	local inputW = math.min(sx(360), pw * 0.42)
+
+	drawBlur()
+	drawBackground()
+
+	dxDrawRectangle(px, py, pw, ph, tocolor(17, 22, 30, 232))
+	dxDrawRectangle(px, py, sx(5), ph, tocolor(43, 126, 219, 255))
+	dxDrawRectangle(rightX - sx(28), py + sx(42), 1, ph - sx(84), tocolor(255, 255, 255, 45))
+
+	drawHeader(leftX, py + sx(34), pw * 0.42)
+	drawTabs(leftX, contentY, inputW)
+
+	if state.mode == "login" then
+		dxDrawEdit(state.login.username)
+		dxDrawEdit(state.login.password)
+		dxDrawButton(state.login.button)
+		dxDrawButton(state.forgotpass.fpass)
+	else
+		if state.hasAccount then
+			dxDrawText("Este PC ya tiene una cuenta registrada.", leftX, contentY + sx(60), leftX + inputW, contentY + sx(126), tocolor(230, 235, 240, 245), sx(1.1), "default-bold", "center", "center", true, true)
+		else
+			dxDrawEdit(state.register.username)
+			dxDrawEdit(state.register.password)
+			dxDrawEdit(state.register.repassword)
+			dxDrawButton(state.register.button)
+		end
+	end
+
+	if state.mode == "forgot" then
+		dxDrawRectangle(leftX, contentY + sx(170), inputW, sx(112), tocolor(255, 255, 255, 24))
+		dxDrawText("Recuperar clave", leftX, contentY + sx(174), leftX + inputW, contentY + sx(204), tocolor(255, 255, 255, 245), sx(1), "default-bold", "center", "center")
+		dxDrawEdit(state.forgotpass.pass)
+		dxDrawButton(state.forgotpass.button)
+	end
+
+	drawStatus(leftX, py + ph - sx(70), inputW)
+
+	dxDrawText("Bienvenido", rightX + sx(18), py + sx(54), px + pw - sx(42), py + sx(86), tocolor(255, 255, 255, 255), sx(1.25), "default-bold", "left", "center")
+	dxDrawText("Una ciudad nueva esta cargando.\nElige tu cuenta y prepara tu personaje.", rightX + sx(18), py + sx(106), px + pw - sx(42), py + sx(230), tocolor(198, 208, 218, 240), sx(1), "default", "left", "top", false, true)
+	dxDrawButton(state.buttons.music)
+end
+
+local function createControls()
+	local px, py, pw, ph = panelRect()
+	local leftX = px + sx(42)
+	local contentY = py + sx(122)
+	local inputW = math.min(sx(360), pw * 0.42)
+	local inputH = sx(38)
+
+	state.login.username = dxCreateEdit(leftX, contentY + sx(54), inputW, inputH, sx(1), "Usuario")
+	state.login.password = dxCreateEdit(leftX, contentY + sx(102), inputW, inputH, sx(1), "Clave")
+	dxSetEditMask(state.login.password, true)
+	state.login.button = dxCreateButton(leftX, contentY + sx(158), inputW, sx(38), "Iniciar sesion", tocolor(43, 126, 219, 245), sx(1))
+	state.forgotpass.fpass = dxCreateButton(leftX, contentY + sx(206), inputW, sx(28), "Olvide mi clave", tocolor(255, 255, 255, 28), sx(0.9))
+
+	state.register.username = dxCreateEdit(leftX, contentY + sx(54), inputW, inputH, sx(1), "Nuevo usuario")
+	state.register.password = dxCreateEdit(leftX, contentY + sx(102), inputW, inputH, sx(1), "Clave")
+	state.register.repassword = dxCreateEdit(leftX, contentY + sx(150), inputW, inputH, sx(1), "Repetir clave")
+	dxSetEditMask(state.register.password, true)
+	dxSetEditMask(state.register.repassword, true)
+	state.register.button = dxCreateButton(leftX, contentY + sx(206), inputW, sx(38), "Crear cuenta", tocolor(43, 126, 219, 245), sx(1))
+
+	state.forgotpass.pass = dxCreateEdit(leftX + sx(16), contentY + sx(212), inputW - sx(32), inputH, sx(1), "Nueva clave")
+	dxSetEditMask(state.forgotpass.pass, true)
+	state.forgotpass.button = dxCreateButton(leftX + sx(16), contentY + sx(254), inputW - sx(32), sx(28), "Cambiar clave", tocolor(43, 126, 219, 245), sx(0.9))
+
+	state.buttons.music = dxCreateButton(px + pw - sx(172), py + ph - sx(72), sx(130), sx(30), "Musica on/off", tocolor(255, 255, 255, 28), sx(0.85))
+end
 
 function showLogin(serialRegistered)
 	showCursor(true)
-	
-	lp.login.button = dxCreateButton(sX/2 - (150*x)/2,( sY/2 - (410*y)/2 ) + (260*y),150*x,30*y,"Login",tocolor(0,0,0,255))
-	lp.login.username = dxCreateEdit(sX/2 - (270*x)/2,( sY/2 - (410*y)/2 ) + 105*y,270*x,30*y,1.5*fontsize,"Usuario")
-	if serialRegistered then
-		lp.hasAccount = true
-	else
-		lp.hasAccount = false
+	state.hasAccount = serialRegistered and true or false
+	state.mode = "login"
+	state.startTick = getTickCount()
+	if not isElement(state.blur.shader) then
+		state.blur.shader = dxCreateShader("img/blur.fx")
 	end
-	lp.login.password = dxCreateEdit(sX/2 - (270*x)/2,( sY/2 - (410*y)/2 ) + (105*y) + (30*y) + 7*y,270*x,30*y,1.5*fontsize,"Clave")
-	dxSetEditMask(lp.login.password,true)
-	
-	lp.register.button = dxCreateButton((sX/2 - (400*x)/2 - 280*x) + (250*x)/2 - (100*x)/2,( sY/2 - (250*y)/2 ) + (200*y),100*x,30*y,"Registrar",tocolor(0,0,0,255))
-	lp.register.username = dxCreateEdit((sX/2 - (400*x)/2 - 280*x) + (250*x)/2 - (170*x)/2,( sY/2 - (250*y)/2 ) + (60*y),170*x,30*y,1.5*fontsize,"Usuario")
-	lp.register.password = dxCreateEdit((sX/2 - (400*x)/2 - 280*x) + (250*x)/2 - (170*x)/2,( sY/2 - (250*y)/2 ) + (100*y),170*x,30*y,1.5*fontsize,"Clave")
-	dxSetEditMask(lp.register.password,true)
-	lp.register.repassword = dxCreateEdit((sX/2 - (400*x)/2 - 280*x) + (250*x)/2 - (170*x)/2,( sY/2 - (250*y)/2 ) + (140*y),170*x,30*y,1.5*fontsize,"Confirma clave")
-	dxSetEditMask(lp.register.repassword,true)
-	
-	lp.forgotpass.fpass = dxCreateButton(sX/2 - (200*x)/2,( sY/2 - (410*y)/2 ) + (330*y),200*x,20*y,"¿Olvidaste tu clave?",tocolor(41,130,206,255),1*fontsize)
-	lp.forgotpass.pass = dxCreateEdit((sX/2 - (230*x)/2),sY/2 + (410*y)/2  + 8*x + 22*x + 20*y,230*x,30*y,1.5*fontsize,"Nueva clave")
-	lp.forgotpass.button = dxCreateButton((sX/2 - (100*x)/2),sY/2 + (410*y)/2  + 8*x + 22*x + 70*y,100*x,20*y,"Continuar",tocolor(0,0,0,255),1*fontsize)
-	
-	addEventHandler("onClientRender",root,blurRender)
-	addEventHandler("onClientRender",root,drawLogin)
-	addEventHandler("onClientRender",root,drawRegister)
-	
+	if not isElement(state.blur.screensource) then
+		state.blur.screensource = dxCreateScreenSource(sX, sY)
+	end
+	createControls()
+	startLoginMusic()
+	addEventHandler("onClientRender", root, drawLogin)
 end
 
-function resetLoginError()
-	loginError = ""
-end
-
-addEvent( "players:loginResult", true )
-addEventHandler( "players:loginResult", getLocalPlayer( ),
-	function( code )
+addEvent("players:loginResult", true)
+addEventHandler("players:loginResult", localPlayer,
+	function(code)
+		setBusy(state.login.button, false)
 		if code == 1 then
-			loginError = "Usuario o contraseña incorrectos."
-			dxSetButtonEnabled(lp.login.button,true)
-			setTimer(resetLoginError, 2000, 1)
+			setLoginError("Usuario o clave incorrectos.")
 		elseif code == 2 then
-			--show( 'banned', true )
-			loginError = "El usuario se encuentra baneado."
+			setLoginError("Esta cuenta se encuentra baneada.", 6000)
 		elseif code == 3 then
-            --showChat(true)
-            --show( 'activation_required', false )
-			--iniTest()
-			loginError = "El usuario requiere pasar test de rol."
-			dxSetButtonEnabled(lp.login.button,true)
-			setTimer(resetLoginError, 2000, 1)
+			setLoginError("La cuenta requiere completar el test de rol.", 6000)
 		elseif code == 4 then
-			loginError = "Error desconocido, inténtalo de nuevo."
+			setLoginError("Error desconocido. Intentalo de nuevo.")
 		elseif code == 5 then
-			loginError = "Otra persona está usando tu cuenta."
-			dxSetButtonEnabled(lp.login.button,true)
-			setTimer(resetLoginError, 2000, 1)
+			setLoginError("Otra persona esta usando esta cuenta.")
 		elseif code == 6 then
-			--show( 'deactivation', true )
-			loginError = "El usuario está desactivado."
-			dxSetButtonEnabled(lp.login.button,true)
-			setTimer(resetLoginError, 2000, 1)
+			setLoginError("La cuenta esta desactivada por staff.", 6000)
 		end
 	end
 )
-	
-addEvent( "players:registrationResult", true )
-addEventHandler( "players:registrationResult", getLocalPlayer( ),
-	function( code, message )
+
+addEvent("players:registrationResult", true)
+addEventHandler("players:registrationResult", localPlayer,
+	function(code)
+		setBusy(state.register.button, false)
 		if code == 0 then
-			local username = dxGetEditText(lp.register.username)
-			local password = dxGetEditText(lp.register.password)
-			triggerServerEvent("server:login",getLocalPlayer(),username,password)
+			local username = dxGetEditText(state.register.username)
+			local password = dxGetEditText(state.register.password)
+			triggerServerEvent("server:login", localPlayer, username, password)
 		elseif code == 1 then
-			loginError = "Error en el registro, prueba más tarde."
-			dxSetButtonEnabled(lp.register.button,true)
-			setTimer(resetLoginError, 2000, 1)
+			setLoginError("No se pudo completar el registro.")
 		elseif code == 2 then
-			loginError = "Error, el registro está deshabilitado."
+			setLoginError("El registro esta deshabilitado.")
 		elseif code == 3 then
-			loginError = "Error, este usuario ya existe."
-			dxSetButtonEnabled(lp.register.button,true)
-			setTimer(resetLoginError, 2000, 1)
+			setLoginError("Ese usuario ya existe.")
 		elseif code == 4 then
-			loginError = "Error en el registro, prueba más tarde."
-			dxSetButtonEnabled(lp.register.button,true)
-			setTimer(resetLoginError, 2000, 1)
+			setLoginError("Error de base de datos al registrar.")
 		elseif code == 5 then
-			loginError = "Solo se permite una cuenta por serial."
+			setLoginError("Solo se permite una cuenta por serial.", 6000)
 		elseif code == 6 then
-			loginError = "Solo se permiten dos cuentas por IP."
-	    end
-	end	
-)
-
-addEvent( "client:recoverFailed", true )
-addEventHandler( "client:recoverFailed", getLocalPlayer( ),
-	function( )
-		loginError = "Error grave, inténtalo más tarde."
-		setTimer(resetLoginError, 2000, 1)
-	end	
-)
-
-addEvent("client:init:callBack",true)
-addEventHandler("client:init:callBack",root,
-function(serialRegistered)
-	showLogin(serialRegistered)
-end
-)
-
-addEvent("onDestroyLoginPanel",true)
-addEventHandler("onDestroyLoginPanel",root,
-function()
-	showCursor(false)
-	removeEventHandler("onClientRender",root,blurRender)
-	removeEventHandler("onClientRender",root,drawLogin)
-	removeEventHandler("onClientRender",root,drawRegister)
-	removeEventHandler("onClientRender",root,drawForgot)
-	if isElement(lp.blur.screensource) then
-		destroyElement(lp.blur.screensource)
-	end
-	if isElement(lp.blur.shader) then
-		destroyElement(lp.blur.shader)
-	end
-end
-)
-
-addEvent("client:forgotpass:callBack",true)
-addEventHandler("client:forgotpass:callBack",root,
-function(usernameCheck)
-	if usernameCheck == true then
-		addEventHandler("onClientRender",root,drawForgot)
-	else
-		loginError = "No puedes cambiar la clave de ese usuario."
-		setTime(resetLoginError, 2000, 1)
-	end
-end
-)
-
-addEvent("onClientdxButtonClick",true)
-addEventHandler("onClientdxButtonClick",root,
-function(plr)
-	if plr == localPlayer then
-		if source == lp.login.button then
-			local username = dxGetEditText(lp.login.username)
-			local password = dxGetEditText(lp.login.password)
-			if #username >= 3 and #password >= 5 then
-				triggerServerEvent("server:login",plr,username,password)
-				dxSetButtonEnabled(lp.login.button,false)
-			else
-				if #username < 3 then
-					loginError = "El usuario debe de ser de 3 caracteres o más."
-				elseif #password < 5 then
-					loginError = "La clave debe de ser de 5 caracteres o más."
-				end
-				setTimer(resetLoginError, 2000, 1)
-			end
-		elseif source == lp.register.button then
-			local username = dxGetEditText(lp.register.username)
-			local password = dxGetEditText(lp.register.password)
-			local repassword = dxGetEditText(lp.register.repassword)
-			if #username >= 3 and #password >= 8 then
-				if password == repassword then
-					triggerServerEvent("server:register",plr,username,password)
-					dxSetButtonEnabled(lp.register.button,false)
-				end
-			else
-				if #username < 3 then
-					loginError = "El usuario debe de ser de 3 caracteres o más."
-				elseif #password < 8 then
-					loginError = "La clave debe de ser de 8 caracteres o más."
-				end
-				setTimer(resetLoginError, 2000, 1)
-			end
-		elseif source == lp.forgotpass.fpass then
-			local username = dxGetEditText(lp.login.username)
-			if #username > 0 then
-				triggerServerEvent("server:forgotpass",plr,username)
-			else
-				loginError = "¡Introduce primero tu usuario!"
-				setTimer(resetLoginError, 2000, 1)
-			end
-		elseif source == lp.forgotpass.button then
-			local username = dxGetEditText(lp.login.username)
-			if #username > 0 then
-				local password = dxGetEditText(lp.forgotpass.pass)
-				if #password >= 8 then
-					triggerServerEvent("server:changePassword",plr,username,password)
-					removeEventHandler("onClientRender",root,drawForgot)
-				else
-					if password > 0 then
-						loginError = "La clave debe de ser de 8 caracteres o más."
-						setTimer(resetLoginError, 2000, 1)
-					else
-						loginError = "¡Introduce tu nueva clave!"
-						setTimer(resetLoginError, 2000, 1)
-					end
-				end
-			else
-				loginError = "¡Introduce primero tu usuario!"
-				setTimer(resetLoginError, 2000, 1)
-			end
+			setLoginError("Solo se permiten dos cuentas por IP.", 6000)
 		end
 	end
-end
 )
 
-function blurRender ()
-    if isElement( lp.blur.shader ) and isElement( lp.blur.screensource ) then
-		dxUpdateScreenSource(lp.blur.screensource)
-		dxSetShaderValue(lp.blur.shader, "ScreenSource", lp.blur.screensource)
-		dxSetShaderValue(lp.blur.shader, "UVSize", sX, sY)
-		dxSetShaderValue(lp.blur.shader, "BlurStrength", 9 )	
-        dxDrawImage(0, 0, sX, sY, lp.blur.shader)
-    else
-		if not isElement( lp.blur.shader ) then
-			lp.blur.shader = dxCreateShader("img/blur.fx")
+addEvent("client:recoverFailed", true)
+addEventHandler("client:recoverFailed", localPlayer,
+	function()
+		setLoginError("No se pudo recuperar la clave.")
+	end
+)
+
+addEvent("client:init:callBack", true)
+addEventHandler("client:init:callBack", root,
+	function(serialRegistered)
+		showLogin(serialRegistered)
+	end
+)
+
+addEvent("onDestroyLoginPanel", true)
+addEventHandler("onDestroyLoginPanel", root,
+	function()
+		showCursor(false)
+		guiSetInputEnabled(false)
+		stopLoginMusic()
+		removeEventHandler("onClientRender", root, drawLogin)
+		if isElement(state.blur.screensource) then
+			destroyElement(state.blur.screensource)
 		end
-		if not isElement( lp.blur.screensource ) then
-			lp.blur.screensource = dxCreateScreenSource(sX,sY)
-		end		
-		dxSetShaderValue(lp.blur.shader, "ScreenSource", lp.blur.screensource)
-		dxSetShaderValue(lp.blur.shader, "UVSize", sX, sY)
-		dxSetShaderValue(lp.blur.shader, "BlurStrength", 9 )	
-        dxDrawImage(0, 0, sX, sY, lp.blur.shader)
+		if isElement(state.blur.shader) then
+			destroyElement(state.blur.shader)
+		end
 	end
-end       
+)
 
-function drawLogin()
-	dxDrawText2("DownTown RolePlay",sX/2 - (400*x)/2,0,400*x,160*y,tocolor(255,255,255,255),3*fontsize,"arial","center","bottom")
-	dxDrawRectangle(sX/2 - (400*x)/2,sY/2 - (410*y)/2,400*x,410*y,tocolor(255,255,255,20))
-	dxDrawEmptyRectangle(sX/2 - (400*x)/2,sY/2 - (410*y)/2,400*x,410*y,tocolor(0,0,0,100),8*x)
-	
-	dxDrawEdit(lp.login.username)
-	dxDrawImage(sX/2 - (270*x)/2 - 35*y,( sY/2 - (410*y)/2 ) + 105*y,30*y,30*y,"img/username.png")
-	
-	dxDrawEdit(lp.login.password)
-	dxDrawImage(sX/2 - (270*x)/2 - 35*y,( sY/2 - (410*y)/2 ) + (105*y) + (30*y) + 7*y,30*y,30*y,"img/password.png")
-	                                  
-	dxDrawText2(tostring(loginError),(sX/2 - (270*x)/2),sY/2 - (250*y)/2,250*x,250*y,tocolor(255,255,255,255),1.8*fontsize,"default-bold","center","center")
-	
-	dxDrawButton(lp.login.button)
-	
-	dxDrawButton(lp.forgotpass.fpass)
-	dxDrawEmptyRectangle(sX/2 - (200*x)/2,( sY/2 - (410*y)/2 ) + (330*y),200*x,20*y,tocolor(0,0,0,255),1)
-end
-
-function drawRegister()
-	dxDrawRectangle((sX/2 - (400*x)/2) - 30*x,sY/2 - (250*y)/2 + 25*y,22*x,2,tocolor(0,0,0,150))
-	dxDrawRectangle((sX/2 - (400*x)/2) - 30*x,sY/2 - (250*y)/2 + 125*y,22*x,2,tocolor(0,0,0,150))
-	dxDrawRectangle((sX/2 - (400*x)/2) - 30*x,sY/2 - (250*y)/2 + 225*y,22*x,2,tocolor(0,0,0,150))
-	dxDrawText2("¿No tienes cuenta? ¡Crea una!",(sX/2 - (400*x)/2) - 280*x,0,250*x,250*y,tocolor(255,255,255,255),1.5*fontsize,"arial","center","bottom")
-	dxDrawRectangle((sX/2 - (400*x)/2) - 280*x,sY/2 - (250*y)/2,250*x,250*y,tocolor(255,255,255,20))
-	dxDrawEmptyRectangle((sX/2 - (400*x)/2) - 280*x,sY/2 - (250*y)/2,250*x,250*y,tocolor(0,0,0,100),1)
-	
-	if not lp.hasAccount then               
-		dxDrawEdit(lp.register.username)
-		dxDrawImage(((sX/2 - (400*x)/2 - 280*x) + (250*x)/2 - (170*x)/2) - 35*y,( sY/2 - (250*y)/2 ) + (60*y),30*y,30*y,"img/username.png")
-		
-		dxDrawEdit(lp.register.password)
-		dxDrawImage(((sX/2 - (400*x)/2 - 280*x) + (250*x)/2 - (170*x)/2) - 35*y,( sY/2 - (250*y)/2 ) + (100*y),30*y,30*y,"img/password.png")
-		
-		dxDrawEdit(lp.register.repassword)
-		dxDrawImage(((sX/2 - (400*x)/2 - 280*x) + (250*x)/2 - (170*x)/2) - 35*y,( sY/2 - (250*y)/2 ) + (140*y),30*y,30*y,"img/password.png")
-
-		dxDrawButton(lp.register.button)
-	else
-		dxDrawText2("¡Sólo 1 cuenta por PC!",(sX/2 - (400*x)/2) - 280*x,sY/2 - (250*y)/2,250*x,250*y,tocolor(255,255,255,255),1.8*fontsize,"default-bold","center","center")
+addEvent("client:forgotpass:callBack", true)
+addEventHandler("client:forgotpass:callBack", root,
+	function(usernameCheck)
+		if usernameCheck == true then
+			state.mode = "forgot"
+		else
+			setLoginError("No puedes cambiar la clave de ese usuario.")
+		end
 	end
-end
+)
 
-function drawForgot()
-	dxDrawRectangle((sX/2 - (400*x)/2) + 200*x,sY/2 + (410*y)/2 + 8*x,2,22*x,tocolor(0,0,0,150))
-	dxDrawRectangle((sX/2 - (250*x)/2),sY/2 + (410*y)/2  + 8*x + 22*x,250*x,100*y,tocolor(255,255,255,20))
-	dxDrawEmptyRectangle((sX/2 - (250*x)/2),sY/2 + (410*y)/2  + 8*x + 22*x,250*x,100*y,tocolor(0,0,0,100),1)
-	dxDrawEdit(lp.forgotpass.pass)
-	dxDrawButton(lp.forgotpass.button)
-end
+addEvent("onClientdxButtonClick", true)
+addEventHandler("onClientdxButtonClick", root,
+	function(plr)
+		if plr ~= localPlayer then
+			return
+		end
+
+		if source == state.login.button then
+			local username = dxGetEditText(state.login.username)
+			local password = dxGetEditText(state.login.password)
+			if #username < 3 then
+				setLoginError("El usuario debe tener minimo 3 caracteres.")
+			elseif #password < 5 then
+				setLoginError("La clave debe tener minimo 5 caracteres.")
+			else
+				setBusy(state.login.button, true)
+				triggerServerEvent("server:login", localPlayer, username, password)
+			end
+		elseif source == state.register.button then
+			local username = dxGetEditText(state.register.username)
+			local password = dxGetEditText(state.register.password)
+			local repassword = dxGetEditText(state.register.repassword)
+			if state.hasAccount then
+				setLoginError("Este PC ya tiene una cuenta registrada.")
+			elseif #username < 3 then
+				setLoginError("El usuario debe tener minimo 3 caracteres.")
+			elseif #password < 8 then
+				setLoginError("La clave debe tener minimo 8 caracteres.")
+			elseif password ~= repassword then
+				setLoginError("Las claves no coinciden.")
+			else
+				setBusy(state.register.button, true)
+				triggerServerEvent("server:register", localPlayer, username, password)
+			end
+		elseif source == state.forgotpass.fpass then
+			local username = dxGetEditText(state.login.username)
+			if #username > 0 then
+				triggerServerEvent("server:forgotpass", localPlayer, username)
+			else
+				setLoginError("Introduce primero tu usuario.")
+			end
+		elseif source == state.forgotpass.button then
+			local username = dxGetEditText(state.login.username)
+			local password = dxGetEditText(state.forgotpass.pass)
+			if #username == 0 then
+				setLoginError("Introduce primero tu usuario.")
+			elseif #password < 8 then
+				setLoginError("La clave debe tener minimo 8 caracteres.")
+			else
+				triggerServerEvent("server:changePassword", localPlayer, username, password)
+			end
+		elseif source == state.buttons.music then
+			toggleLoginMusic()
+		end
+	end
+)

@@ -103,6 +103,53 @@ function get( element )
 	return items[ element ]
 end
 
+local function getEquippedWeaponsWeight( element )
+	local weight = 0
+
+	if getElementType( element ) == "player" then
+		for i = 1, 12 do
+			local weapon = getPedWeapon( element, i )
+			local ammo = getPedTotalAmmo( element, i )
+
+			if weapon and weapon >= 1 then
+				weight = weight + getWeight( 29, weapon, "Arma " .. tostring( weapon ), ammo )
+			end
+		end
+	end
+
+	return weight
+end
+
+function getCurrentWeight( element )
+	local weight = 0
+
+	if items[ element ] then
+		for key, item in ipairs( items[ element ] ) do
+			if item and item.item then
+				weight = weight + getWeight( item.item, item.value, item.name, item.value2 )
+			end
+		end
+	end
+
+	weight = weight + getEquippedWeaponsWeight( element )
+
+	return weight
+end
+
+function getMaxWeight( element )
+	local maxWeight = getDefaultMaxWeight()
+
+	if items[ element ] then
+		for key, item in ipairs( items[ element ] ) do
+			if item and item.item == 12 then
+				maxWeight = maxWeight + getBagCapacity( item.value )
+			end
+		end
+	end
+
+	return maxWeight
+end
+
 function has( element, item, value, name )
 	-- we need a base to work on
 	if items[ element ] then

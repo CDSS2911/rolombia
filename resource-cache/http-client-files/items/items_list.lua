@@ -255,6 +255,68 @@ local IngredienteMap =
 }
 --
 
+local item_categories =
+{
+	[1] = "Llaves", [2] = "Llaves", [5] = "Ropa", [7] = "Comunicacion",
+	[10] = "Consumo", [11] = "Ropa", [12] = "Contenedor", [16] = "Documento",
+	[24] = "Ropa", [27] = "Mueble", [29] = "Arma", [32] = "Comunicacion",
+	[34] = "Material", [35] = "Faccion", [43] = "Municion", [46] = "Proteccion",
+	[47] = "Equipamiento"
+}
+
+local item_weights =
+{
+	default = 0.5,
+	[1] = 0.1, [2] = 0.1, [3] = 0.4, [4] = 0.5, [5] = 1.0,
+	[7] = 0.3, [8] = 0.2, [9] = 0.2, [10] = 0.7, [11] = 1.2,
+	[12] = 1.5, [13] = 0.1, [14] = 0.2, [15] = 0.05, [16] = 0.1,
+	[17] = 0.1, [18] = 0.05, [19] = 0.1, [20] = 0.1, [21] = 0.1,
+	[22] = 0.2, [23] = 0.2, [24] = 0.2, [25] = 0.6, [26] = 0.1,
+	[27] = 6.0, [28] = 0.4, [29] = 2.5, [30] = 4.0, [31] = 0.2,
+	[32] = 0.4, [33] = 0.1, [34] = 0.3, [35] = 1.0, [36] = 0.2,
+	[37] = 0.2, [38] = 0.2, [39] = 0.2, [40] = 0.1, [41] = 0.2,
+	[42] = 1.0, [43] = 0.4, [44] = 5.0, [45] = 0.1, [46] = 5.5,
+	[47] = 0.3
+}
+
+local bag_capacity =
+{
+	[2081] = 10,
+	[2082] = 16,
+	[2083] = 24,
+	[2084] = 32
+}
+
+function getCategory( id )
+	return item_categories[ tonumber( id ) ] or "General"
+end
+
+function getWeight( id, value, name, value2 )
+	id = tonumber( id )
+	value = tonumber( value )
+	local weight = item_weights[ id ] or item_weights.default
+
+	if id == 29 and value then
+		if value >= 30 or value == 34 then
+			weight = 4.5
+		elseif value >= 22 then
+			weight = 2.0
+		end
+	elseif id == 34 and value then
+		weight = math.max( 0.3, value * 0.3 )
+	end
+
+	return weight
+end
+
+function getBagCapacity( model )
+	return bag_capacity[ tonumber( model ) ] or 0
+end
+
+function getDefaultMaxWeight()
+	return 18
+end
+
 local function img( id )
 	return ":items/images/" .. id .. ".PNG"
 end
@@ -412,6 +474,7 @@ item_list =
 	{ name = "Bidón de Gasolina", image = true },--44
 	{ name = "Invitación especial", image = true },--45
 	{ name = "Chaleco Antibalas", image = true },--46
+	{ name = "Soporte de armas", image = ":items/images/soporte.png", description = "Permite llevar un arma primaria y una secundaria equipadas." },--47
 	
 }
   

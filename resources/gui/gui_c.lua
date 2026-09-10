@@ -486,12 +486,18 @@ bindKey( 'tab', 'both',
 
 bindKey( 'i', 'down',
 	function( )
-		if not forcedWindow then
-			if window == windows.inventory then
-				hide( )
-			else
-				show( 'inventory', false, true, true )
-			end
+		if window == windows.inventory then
+			hide( )
+		elseif not forcedWindow then
+			show( 'inventory', false, true, true )
+		end
+	end
+)
+
+bindKey( 'escape', 'down',
+	function( )
+		if window == windows.inventory or window == windows.inventory_other then
+			hide( )
 		end
 	end
 )

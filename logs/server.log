@@ -313,3 +313,964 @@
 [2026-09-09 19:59:12] Server minclientversion is now 1.6.0-9.24109.0
 [2026-09-09 19:59:12] CONNECT: NeurusGM connected (IP: 127.0.0.1  Serial: 8A276B61A377171CA8C77FD182B34E53  Version: 1.6.0-9.24144.0)
 [2026-09-09 19:59:15] JOIN: NeurusGM joined the game (IP: 127.0.0.1)
+==================================================================
+= Multi Theft Auto: San Andreas v1.6
+==================================================================
+= Server name      : Default MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..RVER/server/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22005
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[2026-09-09 20:19:52] Resources: 97 loaded, 0 failed
+[2026-09-09 20:19:53] MODULE: Loaded "MySQL 5.0 database module" (0.50) by "Alberto Alonso <rydencillo@gmail.com>"
+[2026-09-09 20:19:53] Starting resources...
+[2026-09-09 20:19:53] Server minclientversion is now 1.6.0-9.24109.0
+[2026-09-09 20:19:53] startResource: Resource '3dtext' started
+[2026-09-09 20:19:53] WARNING: admin/util.lua(Line 252) [Server] doesPedHaveJetPack is deprecated and may not work in future versions. Please replace with isPedWearingJetpack before Tuesday.
+[2026-09-09 20:19:53] WARNING: admin/util.lua(Line 253) [Server] removePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[2026-09-09 20:19:53] WARNING: admin/util.lua(Line 256) [Server] givePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[2026-09-09 20:19:53] Some files in 'admin' use deprecated functions.
+[2026-09-09 20:19:53] Use the 'upgrade' command to perform a basic upgrade of resources.
+[2026-09-09 20:19:53] startResource: Resource 'admin' started
+[2026-09-09 20:19:53] startResource: Resource 'ajax' started
+[2026-09-09 20:19:53] startResource: Resource 'ammunation' started
+[2026-09-09 20:19:53] startResource: Resource 'anims' started
+[2026-09-09 20:19:53] startResource: Resource 'anticheat' started
+[2026-09-09 20:19:53] startResource: Resource 'armas' started
+[2026-09-09 20:19:53] startResource: Resource 'artificiales' started
+[2026-09-09 20:19:53] startResource: Resource 'asistencia' started
+[2026-09-09 20:19:53] startResource: Resource 'bank' started
+[2026-09-09 20:19:53] startResource: Resource 'barreras' started
+[2026-09-09 20:19:53] startResource: Resource 'basket' started
+[2026-09-09 20:19:53] startResource: Resource 'bloqueos' started
+[2026-09-09 20:19:53] startResource: Resource 'bone_attach' started
+[2026-09-09 20:19:53] startResource: Resource 'browser' started
+[2026-09-09 20:19:53] startResource: Resource 'cascos' started
+[2026-09-09 20:19:53] startResource: Resource 'casino' started
+[2026-09-09 20:19:53] startResource: Resource 'chat' started
+[2026-09-09 20:19:53] startResource: Resource 'clubsex' started
+[2026-09-09 20:19:53] startResource: Resource 'colorblender' started
+[2026-09-09 20:19:53] startResource: Resource 'conce' started
+[2026-09-09 20:19:53] startResource: Resource 'condiciones' started
+[2026-09-09 20:19:53] startResource: Resource 'constructora' started
+[2026-09-09 20:19:53] startResource: Resource 'customblips' started
+[2026-09-09 20:19:53] startResource: Resource 'descargadorv2' started
+[2026-09-09 20:19:53] startResource: Resource 'eidiomas' started
+[2026-09-09 20:19:53] startResource: Resource 'elementbrowser' started
+[2026-09-09 20:19:53] startResource: Resource 'elevadores' started
+[2026-09-09 20:19:53] startResource: Resource 'factions' started
+[2026-09-09 20:19:53] startResource: Resource 'firstlogin' started
+[2026-09-09 20:19:53] startResource: Resource 'firstperson' started
+[2026-09-09 20:19:53] startResource: Resource 'foro' started
+[2026-09-09 20:19:53] startResource: Resource 'freecam' started
+[2026-09-09 20:19:53] startResource: Resource 'glue' started
+[2026-09-09 20:19:53] startResource: Resource 'gobierno' started
+[2026-09-09 20:19:53] startResource: Resource 'guieditor' started
+[2026-09-09 20:19:53] startResource: Resource 'hud' started
+[2026-09-09 20:19:53] startResource: Resource 'ilegales' started
+[2026-09-09 20:19:53] startResource: Resource 'interiors' started
+[2026-09-09 20:19:53] startResource: Resource 'items' started
+[2026-09-09 20:19:53] startResource: Resource 'jail' started
+[2026-09-09 20:19:53] startResource: Resource 'job-basurero' started
+[2026-09-09 20:19:53] startResource: Resource 'job-butanero' started
+[2026-09-09 20:19:53] startResource: Resource 'job-limpieza' started
+[2026-09-09 20:19:53] startResource: Resource 'job-pescador' started
+[2026-09-09 20:19:53] startResource: Resource 'job-repartidor' started
+[2026-09-09 20:19:53] startResource: Resource 'jobs' started
+[2026-09-09 20:19:53] startResource: Resource 'lavadero' started
+[2026-09-09 20:19:53] startResource: Resource 'licencias' started
+[2026-09-09 20:19:53] startResource: Resource 'loginpanel' started
+[2026-09-09 20:19:53] startResource: Resource 'logs' started
+[2026-09-09 20:19:53] startResource: Resource 'mapas' started
+[2026-09-09 20:19:53] startResource: Resource 'mascotas' started
+[2026-09-09 20:19:54] startResource: Resource 'medico' started
+[2026-09-09 20:19:54] startResource: Resource 'mochilas' started
+[2026-09-09 20:19:54] startResource: Resource 'muebles' started
+[2026-09-09 20:19:54] startResource: Resource 'objetivos' started
+[2026-09-09 20:19:54] startResource: Resource 'payday' started
+[2026-09-09 20:19:54] startResource: Resource 'peajes' started
+[2026-09-09 20:19:54] startResource: Resource 'pedshadow' started
+[2026-09-09 20:19:54] startResource: Resource 'performancebrowser' started
+[2026-09-09 20:19:54] startResource: Resource 'periodicos' started
+[2026-09-09 20:19:54] startResource: Resource 'players_auxiliar' started
+[2026-09-09 20:19:54] startResource: Resource 'policia' started
+[2026-09-09 20:19:54] startResource: Resource 'prestamos' started
+[2026-09-09 20:19:54] startResource: Resource 'radar' started
+[2026-09-09 20:19:54] startResource: Resource 'radiomp3' started
+[2026-09-09 20:19:54] startResource: Resource 'realdriveby' started
+[2026-09-09 20:19:54] startResource: Resource 'realismo' started
+[2026-09-09 20:19:54] startResource: Resource 'repartos' started
+[2026-09-09 20:19:54] startResource: Resource 'resourcebrowser' started
+[2026-09-09 20:19:54] startResource: Resource 'resourcemanager' started
+[2026-09-09 20:19:54] startResource: Resource 'robos' started
+[2026-09-09 20:19:54] startResource: Resource 'ropas' started
+[2026-09-09 20:19:54] startResource: Resource 'ruedas' started
+[2026-09-09 20:19:54] startResource: Resource 'runcode' started
+[2026-09-09 20:19:54] startResource: Resource 'seniales' started
+[2026-09-09 20:19:54] startResource: Resource 'server' started
+[2026-09-09 20:19:54] startResource: Resource 'shops' started
+[2026-09-09 20:19:54] startResource: Resource 'sirenas' started
+[2026-09-09 20:19:54] startResource: Resource 'sqlforo' started
+[2026-09-09 20:19:54] startResource: Resource 'sqllogin' started
+[2026-09-09 20:19:54] startResource: Resource 'teleports' started
+[2026-09-09 20:19:54] startResource: Resource 'tiempo' started
+[2026-09-09 20:19:54] startResource: Resource 'tlf' started
+[2026-09-09 20:19:54] startResource: Resource 'transporte' started
+[2026-09-09 20:19:54] startResource: Resource 'vehicles_auxiliar' started
+[2026-09-09 20:19:54] startResource: Resource 'voz' started
+[2026-09-09 20:19:54] startResource: Resource 'webadmin' started
+[2026-09-09 20:19:54] startResource: Resource 'webmap' started
+[2026-09-09 20:19:54] startResource: Resource 'zona' started
+[2026-09-09 20:19:54] Querying MTA master server... success! 
+[2026-09-09 20:19:54] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[2026-09-09 20:19:54] WARNING: <owner_email_address> not set
+[2026-09-09 20:19:54] Server started and is ready to accept connections!
+[2026-09-09 20:19:54] To stop the server, type 'shutdown' or press Ctrl-C
+[2026-09-09 20:19:54] Type 'help' for a list of commands.
+[2026-09-09 20:19:54] WARNING: sql\mysql.lua:39: ATENCIÓN: Se ha conectado usando el usuario root, y no es recomendable.
+[2026-09-09 20:19:54]               _                                    _ _
+[2026-09-09 20:19:54]              | |                                  | (_)
+[2026-09-09 20:19:54]     _ __ ___ | |_ __ _   _ __   __ _ _ __ __ _  __| |_ ___  ___
+[2026-09-09 20:19:54]    | '_ ` _ \| __/ _` | | '_ \ / _` | '__/ _` |/ _` | / __|/ _ \
+[2026-09-09 20:19:54]    | | | | | | || (_| | | |_) | (_| | | | (_| | (_| | \__ \  __/
+[2026-09-09 20:19:54]    |_| |_| |_|\__\__,_| | .__/ \__,_|_|  \__,_|\__,_|_|___/\___|
+[2026-09-09 20:19:54]                         | |
+[2026-09-09 20:19:54]                         |_| v2. DownTown Roleplay 
+[2026-09-09 20:19:54]       Recuerda estar al tanto de las posibles actualizaciones.                            
+[2026-09-09 20:19:54]                https://github.com/Succionadora/DownTown-RolePlay                                   
+[2026-09-09 20:19:54]       Copyright 2020. Todos los derechos reservados bajo GPL-3.0                          
+[2026-09-09 20:20:10] CONNECT: NeurusGM connected (IP: 169.254.192.25  Serial: 8A276B61A377171CA8C77FD182B34E53  Version: 1.6.0-9.24144.0)
+[2026-09-09 20:20:12] JOIN: NeurusGM joined the game (IP: 169.254.192.25)
+[2026-09-09 20:22:10] Server stopped!
+[2026-09-09 20:22:10] Stopping resources...........................................
+[2026-09-09 20:22:10] MODULE: Unloaded "MySQL 5.0 database module" (0.50) by "Alberto Alonso <rydencillo@gmail.com>"
+[2026-09-09 20:22:10] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6
+==================================================================
+= Server name      : Default MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..RVER/server/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22005
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[2026-09-09 20:22:15] Resources: 97 loaded, 0 failed
+[2026-09-09 20:22:15] MODULE: Loaded "MySQL 5.0 database module" (0.50) by "Alberto Alonso <rydencillo@gmail.com>"
+[2026-09-09 20:22:15] Starting resources...
+[2026-09-09 20:22:15] Server minclientversion is now 1.6.0-9.24109.0
+[2026-09-09 20:22:15] startResource: Resource '3dtext' started
+[2026-09-09 20:22:15] WARNING: admin/util.lua(Line 252) [Server] doesPedHaveJetPack is deprecated and may not work in future versions. Please replace with isPedWearingJetpack.
+[2026-09-09 20:22:15] WARNING: admin/util.lua(Line 253) [Server] removePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[2026-09-09 20:22:15] WARNING: admin/util.lua(Line 256) [Server] givePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[2026-09-09 20:22:15] Some files in 'admin' use deprecated functions.
+[2026-09-09 20:22:15] Use the 'upgrade' command to perform a basic upgrade of resources.
+[2026-09-09 20:22:15] startResource: Resource 'admin' started
+[2026-09-09 20:22:15] startResource: Resource 'ajax' started
+[2026-09-09 20:22:15] startResource: Resource 'ammunation' started
+[2026-09-09 20:22:15] startResource: Resource 'anims' started
+[2026-09-09 20:22:15] startResource: Resource 'anticheat' started
+[2026-09-09 20:22:15] startResource: Resource 'armas' started
+[2026-09-09 20:22:15] startResource: Resource 'artificiales' started
+[2026-09-09 20:22:15] startResource: Resource 'asistencia' started
+[2026-09-09 20:22:15] startResource: Resource 'bank' started
+[2026-09-09 20:22:15] startResource: Resource 'barreras' started
+[2026-09-09 20:22:15] startResource: Resource 'basket' started
+[2026-09-09 20:22:15] startResource: Resource 'bloqueos' started
+[2026-09-09 20:22:15] startResource: Resource 'bone_attach' started
+[2026-09-09 20:22:15] startResource: Resource 'browser' started
+[2026-09-09 20:22:15] startResource: Resource 'cascos' started
+[2026-09-09 20:22:15] startResource: Resource 'casino' started
+[2026-09-09 20:22:15] startResource: Resource 'chat' started
+[2026-09-09 20:22:16] startResource: Resource 'clubsex' started
+[2026-09-09 20:22:16] startResource: Resource 'colorblender' started
+[2026-09-09 20:22:16] startResource: Resource 'conce' started
+[2026-09-09 20:22:16] startResource: Resource 'condiciones' started
+[2026-09-09 20:22:16] startResource: Resource 'constructora' started
+[2026-09-09 20:22:16] startResource: Resource 'customblips' started
+[2026-09-09 20:22:16] startResource: Resource 'descargadorv2' started
+[2026-09-09 20:22:16] startResource: Resource 'eidiomas' started
+[2026-09-09 20:22:16] startResource: Resource 'elementbrowser' started
+[2026-09-09 20:22:16] startResource: Resource 'elevadores' started
+[2026-09-09 20:22:16] startResource: Resource 'factions' started
+[2026-09-09 20:22:16] startResource: Resource 'firstlogin' started
+[2026-09-09 20:22:16] startResource: Resource 'firstperson' started
+[2026-09-09 20:22:16] startResource: Resource 'foro' started
+[2026-09-09 20:22:16] startResource: Resource 'freecam' started
+[2026-09-09 20:22:16] startResource: Resource 'glue' started
+[2026-09-09 20:22:16] startResource: Resource 'gobierno' started
+[2026-09-09 20:22:16] startResource: Resource 'guieditor' started
+[2026-09-09 20:22:16] startResource: Resource 'hud' started
+[2026-09-09 20:22:16] startResource: Resource 'ilegales' started
+[2026-09-09 20:22:16] startResource: Resource 'interiors' started
+[2026-09-09 20:22:16] startResource: Resource 'items' started
+[2026-09-09 20:22:16] startResource: Resource 'jail' started
+[2026-09-09 20:22:16] startResource: Resource 'job-basurero' started
+[2026-09-09 20:22:16] startResource: Resource 'job-butanero' started
+[2026-09-09 20:22:16] startResource: Resource 'job-limpieza' started
+[2026-09-09 20:22:16] startResource: Resource 'job-pescador' started
+[2026-09-09 20:22:16] startResource: Resource 'job-repartidor' started
+[2026-09-09 20:22:16] startResource: Resource 'jobs' started
+[2026-09-09 20:22:16] startResource: Resource 'lavadero' started
+[2026-09-09 20:22:16] startResource: Resource 'licencias' started
+[2026-09-09 20:22:16] startResource: Resource 'loginpanel' started
+[2026-09-09 20:22:16] startResource: Resource 'logs' started
+[2026-09-09 20:22:16] startResource: Resource 'mapas' started
+[2026-09-09 20:22:16] startResource: Resource 'mascotas' started
+[2026-09-09 20:22:16] startResource: Resource 'medico' started
+[2026-09-09 20:22:16] startResource: Resource 'mochilas' started
+[2026-09-09 20:22:16] startResource: Resource 'muebles' started
+[2026-09-09 20:22:16] startResource: Resource 'objetivos' started
+[2026-09-09 20:22:16] startResource: Resource 'payday' started
+[2026-09-09 20:22:16] startResource: Resource 'peajes' started
+[2026-09-09 20:22:16] startResource: Resource 'pedshadow' started
+[2026-09-09 20:22:16] startResource: Resource 'performancebrowser' started
+[2026-09-09 20:22:16] startResource: Resource 'periodicos' started
+[2026-09-09 20:22:16] startResource: Resource 'players_auxiliar' started
+[2026-09-09 20:22:16] startResource: Resource 'policia' started
+[2026-09-09 20:22:16] startResource: Resource 'prestamos' started
+[2026-09-09 20:22:16] startResource: Resource 'radar' started
+[2026-09-09 20:22:16] startResource: Resource 'radiomp3' started
+[2026-09-09 20:22:16] startResource: Resource 'realdriveby' started
+[2026-09-09 20:22:16] startResource: Resource 'realismo' started
+[2026-09-09 20:22:16] startResource: Resource 'repartos' started
+[2026-09-09 20:22:16] startResource: Resource 'resourcebrowser' started
+[2026-09-09 20:22:16] startResource: Resource 'resourcemanager' started
+[2026-09-09 20:22:16] startResource: Resource 'robos' started
+[2026-09-09 20:22:17] startResource: Resource 'ropas' started
+[2026-09-09 20:22:17] startResource: Resource 'ruedas' started
+[2026-09-09 20:22:17] startResource: Resource 'runcode' started
+[2026-09-09 20:22:17] startResource: Resource 'seniales' started
+[2026-09-09 20:22:17] startResource: Resource 'server' started
+[2026-09-09 20:22:17] startResource: Resource 'shops' started
+[2026-09-09 20:22:17] startResource: Resource 'sirenas' started
+[2026-09-09 20:22:17] startResource: Resource 'sqlforo' started
+[2026-09-09 20:22:17] startResource: Resource 'sqllogin' started
+[2026-09-09 20:22:17] startResource: Resource 'teleports' started
+[2026-09-09 20:22:17] startResource: Resource 'tiempo' started
+[2026-09-09 20:22:17] startResource: Resource 'tlf' started
+[2026-09-09 20:22:17] startResource: Resource 'transporte' started
+[2026-09-09 20:22:17] startResource: Resource 'vehicles_auxiliar' started
+[2026-09-09 20:22:17] startResource: Resource 'voz' started
+[2026-09-09 20:22:17] startResource: Resource 'webadmin' started
+[2026-09-09 20:22:17] startResource: Resource 'webmap' started
+[2026-09-09 20:22:17] startResource: Resource 'zona' started
+[2026-09-09 20:22:17] Querying MTA master server... success! 
+[2026-09-09 20:22:17] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[2026-09-09 20:22:17] WARNING: <owner_email_address> not set
+[2026-09-09 20:22:17] Server started and is ready to accept connections!
+[2026-09-09 20:22:17] To stop the server, type 'shutdown' or press Ctrl-C
+[2026-09-09 20:22:17] Type 'help' for a list of commands.
+[2026-09-09 20:22:17] WARNING: sql\mysql.lua:39: ATENCIÓN: Se ha conectado usando el usuario root, y no es recomendable.
+[2026-09-09 20:22:17]               _                                    _ _
+[2026-09-09 20:22:17]              | |                                  | (_)
+[2026-09-09 20:22:17]     _ __ ___ | |_ __ _   _ __   __ _ _ __ __ _  __| |_ ___  ___
+[2026-09-09 20:22:17]    | '_ ` _ \| __/ _` | | '_ \ / _` | '__/ _` |/ _` | / __|/ _ \
+[2026-09-09 20:22:17]    | | | | | | || (_| | | |_) | (_| | | | (_| | (_| | \__ \  __/
+[2026-09-09 20:22:17]    |_| |_| |_|\__\__,_| | .__/ \__,_|_|  \__,_|\__,_|_|___/\___|
+[2026-09-09 20:22:17]                         | |
+[2026-09-09 20:22:17]                         |_| v2. DownTown Roleplay 
+[2026-09-09 20:22:17]       Recuerda estar al tanto de las posibles actualizaciones.                            
+[2026-09-09 20:22:17]                https://github.com/Succionadora/DownTown-RolePlay                                   
+[2026-09-09 20:22:17]       Copyright 2020. Todos los derechos reservados bajo GPL-3.0                          
+[2026-09-09 20:22:23] CONNECT: NeurusGM connected (IP: 169.254.192.25  Serial: 8A276B61A377171CA8C77FD182B34E53  Version: 1.6.0-9.24144.0)
+[2026-09-09 20:22:24] JOIN: NeurusGM joined the game (IP: 169.254.192.25)
+[2026-09-09 20:25:24] QUIT: NeurusGM left the game [Quit] 
+[2026-09-09 20:25:26] CONNECT: NeurusGM connected (IP: 169.254.192.25  Serial: 8A276B61A377171CA8C77FD182B34E53  Version: 1.6.0-9.24144.0)
+[2026-09-09 20:25:27] JOIN: NeurusGM joined the game (IP: 169.254.192.25)
+[2026-09-09 20:28:19] QUIT: NeurusGM left the game [Quit] 
+[2026-09-09 20:29:18] CONNECT: NeurusGM connected (IP: 169.254.192.25  Serial: 8A276B61A377171CA8C77FD182B34E53  Version: 1.6.0-9.24144.0)
+[2026-09-09 20:29:19] JOIN: NeurusGM joined the game (IP: 169.254.192.25)
+[2026-09-09 20:29:47] ACL: Denied 'NeurusGM' access to command 'login'
+[2026-09-09 20:30:02] ACL: Denied 'NeurusGM' access to command 'login'
+[2026-09-09 20:30:07] ACL: Denied 'NeurusGM' access to command 'login'
+[2026-09-09 20:50:39] restart: Requested by Console
+[2026-09-09 20:50:39] restart: Resource 'loginpanel' restarting...
+[2026-09-09 20:50:39] Stopping loginpanel
+[2026-09-09 20:50:39] Resource 'loginpanel' changed, reloading and starting
+[2026-09-09 20:50:39] Starting loginpanel
+[2026-09-09 20:50:39] loginpanel restarted successfully
+[2026-09-09 20:51:34] restart: Requested by Console
+[2026-09-09 20:51:34] restart: Resource 'players' restarting...
+[2026-09-09 20:51:34] Stopping players
+[2026-09-09 20:51:34] Resource 'players' changed, reloading and starting
+[2026-09-09 20:51:34] Starting players
+[2026-09-09 20:51:34] players restarted successfully
+[2026-09-09 20:51:49] restart: Requested by Console
+[2026-09-09 20:51:49] restart: Resource 'players_auxiliar' restarting...
+[2026-09-09 20:51:49] Stopping players_auxiliar
+[2026-09-09 20:51:49] Resource 'players_auxiliar' changed, reloading and starting
+[2026-09-09 20:51:49] Starting players_auxiliar
+[2026-09-09 20:51:49] players_auxiliar restarted successfully
+[2026-09-09 20:58:41] restart: Requested by Console
+[2026-09-09 20:58:41] restart: Resource 'sql' could not be restarted as it is protected
+[2026-09-09 20:58:46] restart: Requested by Console
+[2026-09-09 20:58:46] restart: Resource 'admin' restarting...
+[2026-09-09 20:58:46] Stopping admin
+[2026-09-09 20:58:46] Resource 'admin' changed, reloading and starting
+[2026-09-09 20:58:46] WARNING: admin/util.lua(Line 252) [Server] doesPedHaveJetPack is deprecated and may not work in future versions. Please replace with isPedWearingJetpack.
+[2026-09-09 20:58:46] WARNING: admin/util.lua(Line 253) [Server] removePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[2026-09-09 20:58:46] WARNING: admin/util.lua(Line 256) [Server] givePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[2026-09-09 20:58:46] Some files in 'admin' use deprecated functions.
+[2026-09-09 20:58:46] Use the 'upgrade' command to perform a basic upgrade of resources.
+[2026-09-09 20:58:46] Starting admin
+[2026-09-09 20:58:46] admin restarted successfully
+[2026-09-09 20:58:53] restart: Requested by Console
+[2026-09-09 20:58:53] restart: Resource 'all' could not be found
+[2026-09-09 20:58:56] * Syntax: restart <resource1> <resource2> ...
+==================================================================
+= Multi Theft Auto: San Andreas v1.6
+==================================================================
+= Server name      : Default MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..RVER/server/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22005
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[2026-09-09 20:59:04] Resources: 97 loaded, 0 failed
+[2026-09-09 20:59:04] MODULE: Loaded "MySQL 5.0 database module" (0.50) by "Alberto Alonso <rydencillo@gmail.com>"
+[2026-09-09 20:59:04] Starting resources...
+[2026-09-09 20:59:04] Server minclientversion is now 1.6.0-9.24109.0
+[2026-09-09 20:59:04] startResource: Resource '3dtext' started
+[2026-09-09 20:59:04] WARNING: admin/util.lua(Line 252) [Server] doesPedHaveJetPack is deprecated and may not work in future versions. Please replace with isPedWearingJetpack.
+[2026-09-09 20:59:04] WARNING: admin/util.lua(Line 253) [Server] removePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[2026-09-09 20:59:04] WARNING: admin/util.lua(Line 256) [Server] givePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[2026-09-09 20:59:04] Some files in 'admin' use deprecated functions.
+[2026-09-09 20:59:04] Use the 'upgrade' command to perform a basic upgrade of resources.
+[2026-09-09 20:59:04] startResource: Resource 'admin' started
+[2026-09-09 20:59:04] startResource: Resource 'ajax' started
+[2026-09-09 20:59:04] startResource: Resource 'ammunation' started
+[2026-09-09 20:59:04] startResource: Resource 'anims' started
+[2026-09-09 20:59:04] startResource: Resource 'anticheat' started
+[2026-09-09 20:59:04] startResource: Resource 'armas' started
+[2026-09-09 20:59:04] startResource: Resource 'artificiales' started
+[2026-09-09 20:59:04] startResource: Resource 'asistencia' started
+[2026-09-09 20:59:04] startResource: Resource 'bank' started
+[2026-09-09 20:59:04] startResource: Resource 'barreras' started
+[2026-09-09 20:59:04] startResource: Resource 'basket' started
+[2026-09-09 20:59:04] startResource: Resource 'bloqueos' started
+[2026-09-09 20:59:04] startResource: Resource 'bone_attach' started
+[2026-09-09 20:59:04] startResource: Resource 'browser' started
+[2026-09-09 20:59:04] startResource: Resource 'cascos' started
+[2026-09-09 20:59:04] startResource: Resource 'casino' started
+[2026-09-09 20:59:04] startResource: Resource 'chat' started
+[2026-09-09 20:59:04] startResource: Resource 'clubsex' started
+[2026-09-09 20:59:04] startResource: Resource 'colorblender' started
+[2026-09-09 20:59:04] startResource: Resource 'conce' started
+[2026-09-09 20:59:04] startResource: Resource 'condiciones' started
+[2026-09-09 20:59:04] startResource: Resource 'constructora' started
+[2026-09-09 20:59:04] startResource: Resource 'customblips' started
+[2026-09-09 20:59:04] startResource: Resource 'descargadorv2' started
+[2026-09-09 20:59:04] startResource: Resource 'eidiomas' started
+[2026-09-09 20:59:04] startResource: Resource 'elementbrowser' started
+[2026-09-09 20:59:04] startResource: Resource 'elevadores' started
+[2026-09-09 20:59:04] startResource: Resource 'factions' started
+[2026-09-09 20:59:04] startResource: Resource 'firstlogin' started
+[2026-09-09 20:59:04] startResource: Resource 'firstperson' started
+[2026-09-09 20:59:04] startResource: Resource 'foro' started
+[2026-09-09 20:59:04] startResource: Resource 'freecam' started
+[2026-09-09 20:59:04] startResource: Resource 'glue' started
+[2026-09-09 20:59:04] startResource: Resource 'gobierno' started
+[2026-09-09 20:59:04] startResource: Resource 'guieditor' started
+[2026-09-09 20:59:04] startResource: Resource 'hud' started
+[2026-09-09 20:59:04] startResource: Resource 'ilegales' started
+[2026-09-09 20:59:04] startResource: Resource 'interiors' started
+[2026-09-09 20:59:05] startResource: Resource 'items' started
+[2026-09-09 20:59:05] startResource: Resource 'jail' started
+[2026-09-09 20:59:05] startResource: Resource 'job-basurero' started
+[2026-09-09 20:59:05] startResource: Resource 'job-butanero' started
+[2026-09-09 20:59:05] startResource: Resource 'job-limpieza' started
+[2026-09-09 20:59:05] startResource: Resource 'job-pescador' started
+[2026-09-09 20:59:05] startResource: Resource 'job-repartidor' started
+[2026-09-09 20:59:05] startResource: Resource 'jobs' started
+[2026-09-09 20:59:05] startResource: Resource 'lavadero' started
+[2026-09-09 20:59:05] startResource: Resource 'licencias' started
+[2026-09-09 20:59:05] startResource: Resource 'loginpanel' started
+[2026-09-09 20:59:05] startResource: Resource 'logs' started
+[2026-09-09 20:59:05] startResource: Resource 'mapas' started
+[2026-09-09 20:59:05] startResource: Resource 'mascotas' started
+[2026-09-09 20:59:05] startResource: Resource 'medico' started
+[2026-09-09 20:59:05] startResource: Resource 'mochilas' started
+[2026-09-09 20:59:05] startResource: Resource 'muebles' started
+[2026-09-09 20:59:05] startResource: Resource 'objetivos' started
+[2026-09-09 20:59:05] startResource: Resource 'payday' started
+[2026-09-09 20:59:05] startResource: Resource 'peajes' started
+[2026-09-09 20:59:05] startResource: Resource 'pedshadow' started
+[2026-09-09 20:59:05] startResource: Resource 'performancebrowser' started
+[2026-09-09 20:59:05] startResource: Resource 'periodicos' started
+[2026-09-09 20:59:05] startResource: Resource 'players_auxiliar' started
+[2026-09-09 20:59:05] startResource: Resource 'policia' started
+[2026-09-09 20:59:05] startResource: Resource 'prestamos' started
+[2026-09-09 20:59:05] startResource: Resource 'radar' started
+[2026-09-09 20:59:05] startResource: Resource 'radiomp3' started
+[2026-09-09 20:59:05] startResource: Resource 'realdriveby' started
+[2026-09-09 20:59:05] startResource: Resource 'realismo' started
+[2026-09-09 20:59:05] startResource: Resource 'repartos' started
+[2026-09-09 20:59:05] startResource: Resource 'resourcebrowser' started
+[2026-09-09 20:59:05] startResource: Resource 'resourcemanager' started
+[2026-09-09 20:59:05] startResource: Resource 'robos' started
+[2026-09-09 20:59:05] startResource: Resource 'ropas' started
+[2026-09-09 20:59:05] startResource: Resource 'ruedas' started
+[2026-09-09 20:59:05] startResource: Resource 'runcode' started
+[2026-09-09 20:59:05] startResource: Resource 'seniales' started
+[2026-09-09 20:59:05] startResource: Resource 'server' started
+[2026-09-09 20:59:05] startResource: Resource 'shops' started
+[2026-09-09 20:59:05] startResource: Resource 'sirenas' started
+[2026-09-09 20:59:05] startResource: Resource 'sqlforo' started
+[2026-09-09 20:59:05] startResource: Resource 'sqllogin' started
+[2026-09-09 20:59:05] startResource: Resource 'teleports' started
+[2026-09-09 20:59:05] startResource: Resource 'tiempo' started
+[2026-09-09 20:59:05] startResource: Resource 'tlf' started
+[2026-09-09 20:59:05] startResource: Resource 'transporte' started
+[2026-09-09 20:59:05] startResource: Resource 'vehicles_auxiliar' started
+[2026-09-09 20:59:05] startResource: Resource 'voz' started
+[2026-09-09 20:59:05] startResource: Resource 'webadmin' started
+[2026-09-09 20:59:05] startResource: Resource 'webmap' started
+[2026-09-09 20:59:05] startResource: Resource 'zona' started
+[2026-09-09 20:59:05] Querying MTA master server... success! 
+[2026-09-09 20:59:05] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[2026-09-09 20:59:05] WARNING: <owner_email_address> not set
+[2026-09-09 20:59:05] Server started and is ready to accept connections!
+[2026-09-09 20:59:05] To stop the server, type 'shutdown' or press Ctrl-C
+[2026-09-09 20:59:05] Type 'help' for a list of commands.
+[2026-09-09 20:59:05] WARNING: sql\mysql.lua:39: ATENCIÓN: Se ha conectado usando el usuario root, y no es recomendable.
+[2026-09-09 20:59:05]               _                                    _ _
+[2026-09-09 20:59:05]              | |                                  | (_)
+[2026-09-09 20:59:05]     _ __ ___ | |_ __ _   _ __   __ _ _ __ __ _  __| |_ ___  ___
+[2026-09-09 20:59:05]    | '_ ` _ \| __/ _` | | '_ \ / _` | '__/ _` |/ _` | / __|/ _ \
+[2026-09-09 20:59:05]    | | | | | | || (_| | | |_) | (_| | | | (_| | (_| | \__ \  __/
+[2026-09-09 20:59:05]    |_| |_| |_|\__\__,_| | .__/ \__,_|_|  \__,_|\__,_|_|___/\___|
+[2026-09-09 20:59:05]                         | |
+[2026-09-09 20:59:05]                         |_| v2. DownTown Roleplay 
+[2026-09-09 20:59:05]       Recuerda estar al tanto de las posibles actualizaciones.                            
+[2026-09-09 20:59:05]                https://github.com/Succionadora/DownTown-RolePlay                                   
+[2026-09-09 20:59:05]       Copyright 2020. Todos los derechos reservados bajo GPL-3.0                          
+[2026-09-09 20:59:18] CONNECT: NeurusGM connected (IP: 169.254.192.25  Serial: 8A276B61A377171CA8C77FD182B34E53  Version: 1.6.0-9.24144.0)
+[2026-09-09 20:59:18] JOIN: NeurusGM joined the game (IP: 169.254.192.25)
+[2026-09-09 21:00:06] ThematrixHD 165c2600a744ba914b214ebd329dba
+[2026-09-09 21:00:06] INFO: Added account ThematrixHD
+[2026-09-09 21:00:06] LOGIN: (Everyone) NeurusGM successfully logged in as 'ThematrixHD' (IP: 169.254.192.25  Serial: 8A276B61A377171CA8C77FD182B34E53)
+[2026-09-09 21:00:06] ACL: players: Object 'user.ThematrixHD' added to group 'Desarrollador'
+[2026-09-09 21:00:06] INFO: Added account ThematrixHD to Desarrollador ACL
+[2026-09-09 21:00:47] NICK: NeurusGM is now known as Luis_Cabellos
+[2026-09-09 21:02:21] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:02:21] WARNING: players\main.lua:63: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:02:34] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:02:49] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:03:04] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:03:19] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:03:34] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:03:49] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:04:04] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:04:15] WARNING: players\main.lua:63: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:04:18] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:04:24] WARNING: players\main.lua:63: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:04:24] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:04:34] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:04:49] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:04:55] WARNING: players\main.lua:63: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:05:02] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:05:08] WARNING: players\main.lua:63: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:05:08] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:05:19] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:05:34] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:05:49] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:06:04] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:06:19] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:06:34] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:06:49] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:07:04] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:07:19] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:07:34] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:07:49] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:08:04] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:08:19] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:08:34] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:08:49] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:09:04] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:09:19] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:09:34] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:09:49] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:10:04] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:10:19] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:10:34] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:10:50] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:11:05] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:11:20] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:11:35] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:11:50] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:12:05] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:12:20] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:12:35] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:12:50] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:13:05] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:13:20] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:13:35] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:13:50] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:14:05] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:14:20] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:14:35] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:14:41] restart: Requested by Console
+[2026-09-09 21:14:41] restart: Resource 'zona' restarting...
+[2026-09-09 21:14:41] Stopping zona
+[2026-09-09 21:14:41] Resource 'zona' changed, reloading and starting
+[2026-09-09 21:14:41] Starting zona
+[2026-09-09 21:14:41] zona restarted successfully
+[2026-09-09 21:14:45] restart: Requested by Console
+[2026-09-09 21:14:45] restart: Resource 'items' restarting...
+[2026-09-09 21:14:45] Stopping items
+[2026-09-09 21:14:45] Resource 'items' changed, reloading and starting
+[2026-09-09 21:14:45] Starting items
+[2026-09-09 21:14:45] items restarted successfully
+[2026-09-09 21:14:48] restart: Requested by Console
+[2026-09-09 21:14:48] restart: Resource 'gui' restarting...
+[2026-09-09 21:14:48] Stopping gui
+[2026-09-09 21:14:48] Resource 'gui' changed, reloading and starting
+[2026-09-09 21:14:48] Starting gui
+[2026-09-09 21:14:48] gui restarted successfully
+[2026-09-09 21:14:50] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:14:58] stop: Requested by Console
+[2026-09-09 21:14:58] stop: Resource 'zona' stopping...
+[2026-09-09 21:14:58] Stopping zona
+[2026-09-09 21:15:05] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:15:20] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:15:35] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:15:49] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:15:49] Stopping gui
+[2026-09-09 21:15:49] Starting gui
+[2026-09-09 21:15:49] gui restarted successfully
+[2026-09-09 21:15:50] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:16:02] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:16:04] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:16:05] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:16:05] Stopping gui
+[2026-09-09 21:16:05] Starting gui
+[2026-09-09 21:16:05] gui restarted successfully
+[2026-09-09 21:16:05] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:16:20] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:16:30] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:16:30] Stopping gui
+[2026-09-09 21:16:30] Starting gui
+[2026-09-09 21:16:30] gui restarted successfully
+[2026-09-09 21:16:35] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:16:50] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:17:05] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:17:20] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:17:35] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:17:38] INFO: Tienda creada correctamente con ID - 1
+[2026-09-09 21:17:50] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:18:05] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:18:19] INFO: Tienda creada correctamente con ID - 2
+[2026-09-09 21:18:20] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:18:35] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:18:46] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:18:46] Stopping gui
+[2026-09-09 21:18:46] Resource 'gui' changed, reloading and starting
+[2026-09-09 21:18:46] Starting gui
+[2026-09-09 21:18:46] gui restarted successfully
+[2026-09-09 21:18:50] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:19:05] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:19:20] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:19:35] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:19:35] Stopping gui
+[2026-09-09 21:19:35] Resource 'gui' changed, reloading and starting
+[2026-09-09 21:19:35] ERROR: Couldn't find script(s) windows/inventory.lua for resource gui
+[2026-09-09 21:19:35] Loading of resource 'gui' failed
+[2026-09-09 21:19:35] ERROR: Unable to restart resource gui
+[2026-09-09 21:19:35] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:19:49] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:19:50] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:19:54] INFO: Tienda creada correctamente con ID - 3
+[2026-09-09 21:20:05] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:20:20] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:20:35] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:20:50] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:21:05] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:21:20] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:21:35] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:21:50] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:22:05] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:22:20] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:22:35] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:22:50] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:23:05] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:23:20] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:23:35] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:23:51] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:24:06] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:24:21] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:24:36] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:24:51] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:25:06] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:25:21] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:25:36] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:25:51] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:26:06] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:26:21] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:26:36] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:26:51] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:27:06] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:27:21] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:27:36] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:27:51] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:28:06] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:28:11] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:28:21] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:28:30] Resource 'gui' changed, reloading
+[2026-09-09 21:28:30] New resource 'gui' loaded
+[2026-09-09 21:28:30] Resources: 97 loaded, 0 failed
+[2026-09-09 21:28:36] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:28:37] restart: Requested by Console
+[2026-09-09 21:28:37] restart: Resource 'items' restarting...
+[2026-09-09 21:28:37] Stopping items
+[2026-09-09 21:28:37] Resource 'items' changed, reloading and starting
+[2026-09-09 21:28:37] Starting items
+[2026-09-09 21:28:37] items restarted successfully
+[2026-09-09 21:28:43] restart: Requested by Console
+[2026-09-09 21:28:43] restart: Resource 'gui' is not running
+[2026-09-09 21:28:51] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:28:52] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:29:02] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:29:04] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:29:06] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:29:21] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:29:33] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:29:36] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:29:51] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:30:06] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:30:21] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:30:27] start: Requested by Console
+[2026-09-09 21:30:27] Starting gui
+[2026-09-09 21:30:27] start: Resource 'gui' started
+[2026-09-09 21:30:36] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:30:51] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:31:06] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:31:21] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:31:36] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:31:51] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:32:06] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:32:21] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:32:36] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:32:51] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:33:06] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:33:21] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:33:26] INFO: Tienda creada correctamente con ID - 4
+[2026-09-09 21:33:36] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:33:51] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:34:06] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:34:08] INFO: Tienda creada correctamente con ID - 5
+[2026-09-09 21:34:21] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:34:25] INFO: Tienda creada correctamente con ID - 6
+[2026-09-09 21:34:36] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:34:51] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:34:56] INFO: Tienda creada correctamente con ID - 7
+[2026-09-09 21:35:06] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:35:21] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:35:36] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:35:52] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:36:07] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:36:22] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:36:37] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:36:52] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:37:07] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:37:22] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:37:37] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:37:52] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:38:07] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:38:22] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:38:37] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:38:52] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:39:07] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:39:22] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:39:37] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:39:52] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:40:07] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:40:22] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:40:37] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:40:52] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:41:07] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:41:22] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:41:37] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:41:52] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:42:07] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:42:22] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:42:37] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:42:52] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:43:07] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:43:22] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:43:37] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:43:52] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:44:07] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:44:22] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:44:37] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:44:52] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:45:07] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:45:22] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:45:37] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:45:52] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:46:07] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:46:22] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:46:37] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:46:52] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:47:07] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:47:22] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:47:37] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:47:52] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:48:07] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:48:23] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:48:38] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:48:53] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:49:08] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:49:23] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:49:38] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:49:53] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:50:08] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:50:23] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:50:38] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:50:53] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:51:08] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:51:23] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:51:38] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:51:53] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:52:08] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:52:23] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:52:38] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:52:53] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:53:08] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:53:23] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:53:38] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:53:53] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:54:08] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:54:23] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:54:38] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:54:53] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:55:08] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:55:23] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:55:38] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:55:53] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:56:08] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:56:23] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:56:38] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:56:40] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:56:40] Stopping items
+[2026-09-09 21:56:40] Resource 'items' changed, reloading and starting
+[2026-09-09 21:56:40] Starting items
+[2026-09-09 21:56:40] items restarted successfully
+[2026-09-09 21:56:45] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:56:45] Stopping shops
+[2026-09-09 21:56:45] Resource 'shops' changed, reloading and starting
+[2026-09-09 21:56:45] Starting shops
+[2026-09-09 21:56:45] INFO: Tienda creada correctamente con ID - 4
+[2026-09-09 21:56:45] INFO: Tienda creada correctamente con ID - 5
+[2026-09-09 21:56:45] INFO: Tienda creada correctamente con ID - 6
+[2026-09-09 21:56:45] INFO: Tienda creada correctamente con ID - 7
+[2026-09-09 21:56:45] shops restarted successfully
+[2026-09-09 21:56:49] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 21:56:49] Stopping armas
+[2026-09-09 21:56:49] Resource 'armas' changed, reloading and starting
+[2026-09-09 21:56:49] Starting armas
+[2026-09-09 21:56:49] armas restarted successfully
+[2026-09-09 21:56:53] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:57:08] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:57:23] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:57:38] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:57:53] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:58:08] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:58:23] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:58:38] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:58:53] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:59:09] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:59:24] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:59:39] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 21:59:54] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:00:09] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:00:24] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:00:39] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:00:54] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:01:09] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:01:24] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:01:39] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:01:54] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:02:09] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:02:24] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:02:39] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:02:54] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:02:54] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 22:02:54] Stopping shops
+[2026-09-09 22:02:54] Resource 'shops' changed, reloading and starting
+[2026-09-09 22:02:54] Starting shops
+[2026-09-09 22:02:54] INFO: Tienda creada correctamente con ID - 4
+[2026-09-09 22:02:54] INFO: Tienda creada correctamente con ID - 5
+[2026-09-09 22:02:54] INFO: Tienda creada correctamente con ID - 6
+[2026-09-09 22:02:54] INFO: Tienda creada correctamente con ID - 7
+[2026-09-09 22:02:54] shops restarted successfully
+[2026-09-09 22:03:09] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:03:24] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:03:39] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:03:54] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:04:09] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:04:24] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:04:39] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:04:54] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:05:05] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 22:05:05] Stopping shops
+[2026-09-09 22:05:05] Resource 'shops' changed, reloading and starting
+[2026-09-09 22:05:05] Starting shops
+[2026-09-09 22:05:05] INFO: Tienda creada correctamente con ID - 4
+[2026-09-09 22:05:05] INFO: Tienda creada correctamente con ID - 5
+[2026-09-09 22:05:05] INFO: Tienda creada correctamente con ID - 6
+[2026-09-09 22:05:05] INFO: Tienda creada correctamente con ID - 7
+[2026-09-09 22:05:05] shops restarted successfully
+[2026-09-09 22:05:09] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:05:24] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:05:39] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:05:54] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:06:09] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:06:24] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:06:39] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:06:54] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:07:09] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:07:24] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:07:39] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:07:54] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:08:09] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:08:24] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:08:39] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:08:54] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:09:09] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:09:24] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:09:39] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:09:54] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:10:09] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:10:24] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:10:39] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:10:54] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:11:09] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:11:24] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:11:40] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:11:55] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:12:10] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:12:25] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:12:40] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:12:55] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:13:10] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:13:25] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:13:40] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:13:55] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:14:10] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:14:25] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:14:40] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:14:55] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:15:10] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:15:25] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:15:40] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:15:55] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:16:10] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:16:25] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:16:40] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:16:55] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:17:10] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:17:25] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:17:40] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:17:55] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:18:10] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:18:25] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:18:40] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:18:55] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:19:10] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:19:25] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:19:40] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:19:55] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:20:10] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:20:19] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 22:20:19] Stopping admin
+[2026-09-09 22:20:19] Resource 'admin' changed, reloading and starting
+[2026-09-09 22:20:19] WARNING: admin/util.lua(Line 252) [Server] doesPedHaveJetPack is deprecated and may not work in future versions. Please replace with isPedWearingJetpack.
+[2026-09-09 22:20:19] WARNING: admin/util.lua(Line 253) [Server] removePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[2026-09-09 22:20:19] WARNING: admin/util.lua(Line 256) [Server] givePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[2026-09-09 22:20:19] Some files in 'admin' use deprecated functions.
+[2026-09-09 22:20:19] Use the 'upgrade' command to perform a basic upgrade of resources.
+[2026-09-09 22:20:19] Starting admin
+[2026-09-09 22:20:19] admin restarted successfully
+[2026-09-09 22:20:22] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 22:20:22] Stopping asistencia
+[2026-09-09 22:20:22] Resource 'asistencia' changed, reloading and starting
+[2026-09-09 22:20:22] Starting asistencia
+[2026-09-09 22:20:22] asistencia restarted successfully
+[2026-09-09 22:20:25] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:20:40] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:20:55] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:21:10] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:21:25] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:21:40] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:21:55] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:22:10] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:22:25] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:22:40] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:22:55] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:23:10] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:23:25] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:23:40] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:23:55] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:24:10] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:24:26] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:24:41] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:24:56] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:24:57] restart: Requested by Luis_Cabellos(ThematrixHD)
+[2026-09-09 22:24:57] Stopping admin
+[2026-09-09 22:24:57] Resource 'admin' changed, reloading and starting
+[2026-09-09 22:24:57] WARNING: admin/util.lua(Line 252) [Server] doesPedHaveJetPack is deprecated and may not work in future versions. Please replace with isPedWearingJetpack.
+[2026-09-09 22:24:57] WARNING: admin/util.lua(Line 253) [Server] removePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[2026-09-09 22:24:57] WARNING: admin/util.lua(Line 256) [Server] givePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[2026-09-09 22:24:57] Some files in 'admin' use deprecated functions.
+[2026-09-09 22:24:57] Use the 'upgrade' command to perform a basic upgrade of resources.
+[2026-09-09 22:24:57] Starting admin
+[2026-09-09 22:24:57] admin restarted successfully
+[2026-09-09 22:25:11] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:25:26] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:25:41] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:25:56] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:26:11] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:26:26] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:26:41] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:26:56] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:27:11] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:27:26] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:27:41] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:27:56] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:28:11] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:28:26] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:28:41] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:28:56] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:29:11] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:29:26] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:29:41] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:29:56] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:30:11] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:30:26] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:30:41] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:30:56] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:31:11] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:31:26] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:31:41] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:31:56] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:32:11] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:32:26] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:32:41] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:32:56] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:33:11] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:33:26] WARNING: players\main.lua:44: Bad argument @ 'isObjectInACLGroup' [Expected acl-group at argument 2, got boolean]
+[2026-09-09 22:33:39] QUIT: Luis_Cabellos left the game [Quit] 
+[2026-09-09 22:33:39] INFO: Luis Cabellos onCharacterLogout detectado.

@@ -1,0 +1,32 @@
+==================================================================
+= Multi Theft Auto: San Andreas v1.6
+==================================================================
+= Server name      : Map Editor Server
+= Server IP address: auto
+= Server port      : 22010
+= 
+= Log file         : ..rver/mods/deathmatch/logs/editor_server.log
+= Maximum players  : 1
+= HTTP port        : 22011
+= Voice Chat       : Disabled
+= Bandwidth saving : None
+==================================================================
+[2026-09-09 20:19:25] Resource 'guieditor' requests some acl rights. Use the command 'aclrequest list guieditor'
+[2026-09-09 20:19:26] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[2026-09-09 20:19:26] Resources: 97 loaded, 0 failed
+[2026-09-09 20:19:26] Starting resources...
+[2026-09-09 20:19:26] ERROR: Couldn't find resource editor. Check it exists.
+[2026-09-09 20:19:26] ERROR: Couldn't find resource defaultstats. Check it exists.
+[2026-09-09 20:19:26] ERROR: Couldn't find resource joinquit. Check it exists.
+[2026-09-09 20:19:26] ERROR: Couldn't find resource mapmanager. Check it exists.
+[2026-09-09 20:19:26] ERROR: Couldn't find resource ipb. Check it exists.
+[2026-09-09 20:19:26] ERROR: Couldn't find resource parachute. Check it exists.
+[2026-09-09 20:19:26] Server started and is ready to accept connections!
+[2026-09-09 20:19:26] To stop the server, type 'shutdown' or press Ctrl-C
+[2026-09-09 20:19:26] Type 'help' for a list of commands.
+[2026-09-09 20:19:26] CONNECT: NeurusGM connected (IP: 127.0.0.1  Serial: 8A276B61A377171CA8C77FD182B34E53  Version: 1.6.0-9.24144.0)
+[2026-09-09 20:19:26] JOIN: NeurusGM joined the game (IP: 127.0.0.1)
+[2026-09-09 20:19:41] QUIT: NeurusGM left the game [Quit] 
+[2026-09-09 20:19:41] Server stopped!
+[2026-09-09 20:19:41] Stopping resources...
+[2026-09-09 20:19:41] Closing SQLite3 database

@@ -68,7 +68,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
     <export function="updateCharacters" type="client" />
     <export function="updateCopias" type="client" />
     
-    <script src="windows/inventory.lua" type="client" size="5825" />
+    <script src="windows/inventory.lua" type="client" size="4307" />
     <!-- Updates the inventory. -->
     <export function="updateInventory" type="client" />
     
@@ -89,7 +89,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 	-->
     <export function="updateLanguages" type="client" />
     
-    <script src="gui_c.lua" type="client" size="20636" />
+    <script src="gui_c.lua" type="client" size="20789" />
     
     <!-- Shows a GUI window.
 		parameters:

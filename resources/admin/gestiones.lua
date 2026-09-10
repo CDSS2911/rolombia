@@ -327,7 +327,7 @@ function setPassword(username, password)
 			salt = salt .. chars[ math.random( 1, #chars ) ]
 		end
 		local d = exports.sql:query_assoc_single( "SELECT userID FROM wcf1_user WHERE userName = '%s'", username )
-		local newpass = hash("sha1", tostring(salt)..tostring(hash("sha1", tostring(salt)..tostring(hash("sha1", password)))))
+		local newpass = string.upper(hash("sha1", tostring(salt)..tostring(hash("sha1", tostring(salt)..tostring(hash("sha1", password))))))
 		local sql, error = exports.sql:query_free( "UPDATE wcf1_user SET salt = '%s' WHERE userID = " .. d.userID, salt )
 		local sql2, error2 = exports.sql:query_free( "UPDATE wcf1_user SET password = '%s' WHERE userID = " .. d.userID, newpass )
 		if sql and sql2 and not error and not error2 then

@@ -230,20 +230,8 @@ addEventHandler( "onElementClicked", resourceRoot,
 							if shop_configurations[ shop.configuration ].factionID and not exports.factions:isPlayerInFaction(player, shop_configurations[ shop.configuration ].factionID) then
 								outputChatBox("No perteneces a la facción "..exports.factions:getFactionName(shop_configurations[ shop.configuration ].factionID)..".", player, 255, 0, 0)
 							else
-								local nivel = exports.objetivos:getNivel(exports.players:getCharacterID(player))
-								local nivelNec = shop_configurations[ shop.configuration ].nivel
-								if nivelNec == 14 then
-									-- Requiere invitación y comprobamos dimension
-									if getElementDimension(player) == 264 and getElementData(player, "dentroArmas") == true then
-										triggerClientEvent( player, "shops:open", source, shop.configuration )
-										setElementData( player, "inTienda", true )
-									end
-								elseif (nivelNec and nivel < nivelNec) then 
-									outputChatBox("Necesitas nivel "..tostring(nivelNec).." para usar esta tienda. Usa /objetivos.", player, 255, 0, 0)
-								else
-									triggerClientEvent( player, "shops:open", source, shop.configuration )
-									setElementData( player, "inTienda", true )
-								end
+								triggerClientEvent( player, "shops:open", source, shop.configuration )
+								setElementData( player, "inTienda", true )
 							end
 						end
 					end
@@ -304,18 +292,15 @@ addEventHandler( "shops:buy", root,
 					-- check if it's a valid item
 					local item = shop.items and shop.items[ key ] or shop_configurations[ shop.configuration ][ key ]
 					if item then
-						if (getElementDimension(source) == 0) or (exports.interiors:getProductos(getElementDimension(source)) >= (item.price/2)) then
-							if exports.players:takeMoney( source, item.price ) then
-								if getElementDimension(source) > 0 then
-									exports.interiors:giveRecaudacion(getElementDimension(source), math.ceil(item.price*0.5))
-									exports.interiors:takeProductos(getElementDimension(source), math.ceil(item.price*0.5))
-								end
+						if exports.players:takeMoney( source, item.price ) then
+								local bought = false
 								local value = item.itemValue     
 								if item.itemID == 29 then -- Armas
 									local arma = item.itemValue
 									local balas = item.itemValue2
 									local name = "Arma "..tostring(arma)
 									if exports.items:give(source, 29, tostring(arma), tostring(name), tonumber(balas)) then
+										bought = true
 										outputChatBox( "Has comprado un/a " .. tostring(name) .. " por $" .. item.price .. ".", source, 0, 255, 0 )
 										exports.factions:giveFactionPresupuesto(5, tonumber(item.price*0.25))
 									end
@@ -324,11 +309,13 @@ addEventHandler( "shops:buy", root,
 									local balas = item.itemValue2
 									local name = "Arma "..tostring(arma)
 									if exports.items:give(source, 43, tostring(arma), tostring(name), tonumber(balasCargador[arma])) then
+										bought = true
 										outputChatBox( "Has comprado un/a Cargador " .. tostring(name) .. " por $" .. item.price .. ".", source, 0, 255, 0 )
 										exports.factions:giveFactionPresupuesto(5, tonumber(item.price*0.25))
 									end
 								else
 									if exports.items:give( source, item.itemID, value, item.name ) then
+										bought = true
 										outputChatBox( "Has comprado un/a " .. ( item.name or exports.items:getName( item.itemID ) ) .. " por $" .. item.price .. ".", source, 0, 255, 0 )
 										exports.factions:giveFactionPresupuesto(5, tonumber(item.price*0.25))
 										if item.itemID == 9 then -- Es un reloj
@@ -340,9 +327,13 @@ addEventHandler( "shops:buy", root,
 										end
 									end
 								end
-								local nivel = exports.objetivos:getNivel(exports.players:getCharacterID(source))
-								if nivel == 3 and not exports.objetivos:isObjetivoCompletado(23, exports.players:getCharacterID(source)) and shop_configurations[ shop.configuration ].name == "Vendedor Callejero" then
-									exports.objetivos:addObjetivo(23, exports.players:getCharacterID(source), source)
+								if bought then
+									local nivel = exports.objetivos:getNivel(exports.players:getCharacterID(source))
+									if nivel == 3 and not exports.objetivos:isObjetivoCompletado(23, exports.players:getCharacterID(source)) and shop_configurations[ shop.configuration ].name == "Vendedor Callejero" then
+										exports.objetivos:addObjetivo(23, exports.players:getCharacterID(source), source)
+									end
+								else
+									exports.players:giveMoney( source, item.price )
 								end
 							else
 								if item.itemID == 29 then
@@ -353,9 +344,6 @@ addEventHandler( "shops:buy", root,
 									outputChatBox( "No puedes permitirte un/a " .. ( item.name or exports.items:getName( item.itemID ) ) .. ".", source, 0, 255, 0 )
 								end
 							end
-						else
-							outputChatBox("Esta tienda no tiene ese producto. Inténtalo más tarde.", source, 255, 0, 0)
-						end
 					end
 				end
 			end

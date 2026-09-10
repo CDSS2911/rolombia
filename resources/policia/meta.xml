@@ -1,5 +1,6 @@
 <meta>
-    <script src="puertaspoli.lua" type="server" />
+    <!-- Desactivado para iniciar sin puertas fijas en comisaria. -->
+    <!-- <script src="puertaspoli.lua" type="server" /> -->
     <script src="multas.lua" type="server" />
     <script src="policia.lua" type="server" />
     <script src="panel_s.lua" type="server" />

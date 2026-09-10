@@ -23,6 +23,10 @@ local function trim( str )
 	return str:gsub("^%s*(.-)%s*$", "%1")
 end
 
+local function getForumPasswordHash( password, salt )
+	return string.upper( hash( "sha1", tostring( salt ) .. hash( "sha1", tostring( salt ) .. hash( "sha1", tostring( password ) ) ) ) )
+end
+
 addEvent( "players:register", true )
 addEventHandler( "players:register", root,
 	function( username, password )
@@ -54,14 +58,13 @@ addEventHandler( "players:register", root,
 							for i = 1, 40 do
 								salt = salt .. chars[ math.random( 1, #chars ) ]
 							end
-							local userID, error = exports.sql:query_insertid( "INSERT INTO wcf1_user (username,salt,password) VALUES ('%s', '%s', SHA1(CONCAT('%s', SHA1(CONCAT('%s', '" .. hash("sha1", password) .. "')))))", username, salt, salt, salt )
+							local passwordHash = getForumPasswordHash( password, salt )
+							local userID, error = exports.sql:query_insertid( "INSERT INTO wcf1_user (username, salt, password, regIP, regSerial, lastIP, lastSerial) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')", username, salt, passwordHash, getPlayerIP(source), getPlayerSerial(source), getPlayerIP(source), getPlayerSerial(source) )
 							if error then
 								outputDebugString(error)
 								triggerClientEvent( source, "players:registrationResult", source, 4 )
 							else
 								triggerClientEvent( source, "players:registrationResult", source, 0 ) -- Inicio de sesion automático.
-								exports.sql:query_free( "UPDATE wcf1_user SET regIP = '%s' WHERE username = '%s'", getPlayerIP(source), username )
-								exports.sql:query_free( "UPDATE wcf1_user SET regSerial = '%s' WHERE username = '%s'", getPlayerSerial(source), username )
 								outputChatBox ( "Bienvenido por primera vez a DownTown RolePlay.", source, 0, 255, 0 )
 								outputChatBox ( "Te recomendamos que utilices /duda para obtener asistencia", source, 0, 255, 0)
 							end 

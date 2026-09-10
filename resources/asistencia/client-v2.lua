@@ -94,7 +94,10 @@ function abrirVentanaAsistenciaV2()
 		cerrarVentanaAsist()
 	end
 end
-addCommandHandler("ayuda", abrirVentanaAsistenciaV2)
+local function solicitarAyudaGeneral()
+	triggerServerEvent("asistencia:ayudaGeneral", localPlayer)
+end
+addCommandHandler("ayuda", solicitarAyudaGeneral)
 addCommandHandler("asistencia", abrirVentanaAsistenciaV2)
 bindKey("F1", "down", abrirVentanaAsistenciaV2)
             

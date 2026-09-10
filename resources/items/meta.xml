@@ -41,7 +41,7 @@ y/o parte del equipo administrativo. Script realizado por Jefferson.
     <export function="actualizarPosicion" />
     
     <script src="items_list.lua" />
-    <script src="items_list.lua" type="client" size="9983" />
+    <script src="items_list.lua" type="client" size="11322" />
     
     <script src="drogas_c.lua" type="client" size="6482" />
     
@@ -53,6 +53,19 @@ y/o parte del equipo administrativo. Script realizado por Jefferson.
 	-->
     <export function="getName" />
     <export function="getName" type="client" />
+    <export function="getCategory" />
+    <export function="getCategory" type="client" />
+    <export function="getWeight" />
+    <export function="getWeight" type="client" />
+    <export function="getBagCapacity" />
+    <export function="getBagCapacity" type="client" />
+    <export function="getDefaultMaxWeight" />
+    <export function="getDefaultMaxWeight" type="client" />
+    <export function="getCurrentWeight" />
+    <export function="getCurrentWeight" type="client" />
+    <export function="getMaxWeight" />
+    <export function="getMaxWeight" type="client" />
+    <export function="canCarryItem" />
     
     <!-- Returns the description for an Item ID.
 		parameters:
@@ -75,7 +88,7 @@ y/o parte del equipo administrativo. Script realizado por Jefferson.
     <export function="getImage" type="client" />
     
     <script src="items.lua" />
-    <script src="items_c.lua" type="client" size="8604" />
+    <script src="items_c.lua" type="client" size="9644" />
     <!-- Returns all items for an element
 		parameters:
 			(element) element - the element to retrieve all items from.
@@ -174,6 +187,7 @@ y/o parte del equipo administrativo. Script realizado por Jefferson.
     <file src="images/44.png" />
     <file src="images/45.png" />
     <file src="images/46.png" />
+    <file src="images/soporte.png" />
     
     <file src="images/bs1.png" />
     <file src="images/bs2.png" />

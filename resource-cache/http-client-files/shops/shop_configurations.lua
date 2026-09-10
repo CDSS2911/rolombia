@@ -219,6 +219,7 @@ shop_configurations =
 		{ itemID = 43, itemValue = 25, itemValue2 = 1, name = "Cargador Escopeta", description = "Un arma sin cargador, es como no tener nada.", price = 15 },
 		{ itemID = 43, itemValue = 28, itemValue2 = 1, name = "Cargador Uzi", description = "Un arma sin cargador, es como no tener nada.", price = 100 },
 		{ itemID = 43, itemValue = 30, itemValue2 = 1, name = "Cargador AK-47", description = "Un arma sin cargador, es como no tener nada.", price = 150 },
+		{ itemID = 47, itemValue = 1, name = "Soporte de armas", description = "Permite llevar un arma primaria y una secundaria fuera del inventario.", price = 500 },
 	},
 	armas_evento =
     {

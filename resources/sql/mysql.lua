@@ -34,7 +34,7 @@ local function connect( )
 
 	connection = mysql_connect ( server, user, password, db, port, socket )
 	if connection then
-		--mysql_set_character_set(connection, "utf8")
+		mysql_set_character_set(connection, "utf8mb4")
 		if user == "root" then
 			setTimer( outputDebugString, 100, 1, "ATENCIÓN: Se ha conectado usando el usuario root, y no es recomendable.", 2 )
 		end

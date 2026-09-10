@@ -86,6 +86,81 @@ local balasCargador =
 	[ 34 ] = 1,
 }
 
+local weaponCategories =
+{
+	[22] = "secondary",
+	[23] = "secondary",
+	[24] = "secondary",
+	[25] = "primary",
+	[26] = "primary",
+	[27] = "primary",
+	[28] = "primary",
+	[29] = "primary",
+	[30] = "primary",
+	[31] = "primary",
+	[32] = "primary",
+	[33] = "primary",
+	[34] = "primary",
+}
+
+local function getWeaponCategory(weapon)
+	return weaponCategories[tonumber(weapon)] or "other"
+end
+
+local function hasWeaponSupport(player)
+	return has(player, 47)
+end
+
+local function guardarArmasEquipadas(player, newWeapon)
+	local saved = false
+	local support = hasWeaponSupport(player)
+	local newCategory = getWeaponCategory(newWeapon)
+
+	for i = 1, 12 do
+		local weapon = getPedWeapon(player, i)
+		local ammo = getPedTotalAmmo(player, i)
+
+		if weapon and weapon >= 1 then
+			local shouldSave = true
+			if support then
+				local category = getWeaponCategory(weapon)
+				shouldSave = category == newCategory or category == "other" or newCategory == "other"
+			end
+
+			if shouldSave then
+				local name = "Arma " .. tostring(weapon)
+				local ok = give(player, 29, tonumber(weapon), tostring(name), tonumber(ammo), true)
+				if not ok then
+					outputChatBox("No tienes espacio suficiente para guardar tu arma actual.", player, 255, 0, 0)
+					return false
+				end
+
+				takeWeapon(player, weapon)
+				saved = true
+			end
+		end
+	end
+
+	return true, saved
+end
+
+local function getEquippedWeaponsWeight(player)
+	local weight = 0
+
+	if getElementType(player) == "player" then
+		for i = 1, 12 do
+			local weapon = getPedWeapon(player, i)
+			local ammo = getPedTotalAmmo(player, i)
+
+			if weapon and weapon >= 1 then
+				weight = weight + getWeight(29, weapon, "Arma " .. tostring(weapon), ammo)
+			end
+		end
+	end
+
+	return weight
+end
+
 function isTelefonoEncendido(numero)
 	if numero then
 		local consulta = exports.sql:query_assoc_single("SELECT `apagado` FROM `tlf_data` WHERE `numero` = "..tostring(numero).." AND `estado` = 0")
@@ -172,10 +247,55 @@ function get( element )
 		return data[ element ].items
 	end
 end
+
+function getCurrentWeight( element, ignoredSlot )
+	if load( element ) then
+		local weight = 0
+		for slot, item in ipairs( data[ element ].items ) do
+			if slot ~= ignoredSlot then
+				weight = weight + getWeight( item.item, item.value, item.name, item.value2 )
+			end
+		end
+		weight = weight + getEquippedWeaponsWeight( element )
+		return weight
+	end
+	return 0
+end
+
+function getMaxWeight( element )
+	local maxWeight = getDefaultMaxWeight()
+	if load( element ) then
+		for key, item in ipairs( data[ element ].items ) do
+			if tonumber( item.item ) == 12 then
+				maxWeight = maxWeight + getBagCapacity( item.value )
+			end
+		end
+	end
+	return maxWeight
+end
+
+function canCarryItem( element, item, value, name, value2, ignoredSlot )
+	local currentWeight = getCurrentWeight( element, ignoredSlot )
+	local newWeight = getWeight( item, value, name, value2 )
+	local maxWeight = getMaxWeight( element )
+	return currentWeight + newWeight <= maxWeight, currentWeight, newWeight, maxWeight
+end
+
+local function outputWeightError( element, item, value, name, value2, ignoredSlot )
+	local canCarry, currentWeight, newWeight, maxWeight = canCarryItem( element, item, value, name, value2, ignoredSlot )
+	if not canCarry then
+		outputChatBox( "No puedes cargar mas peso. Peso: " .. string.format( "%.1f", currentWeight ) .. "/" .. string.format( "%.1f", maxWeight ) .. " kg. Objeto: +" .. string.format( "%.1f", newWeight ) .. " kg.", element, 255, 0, 0 )
+		return true
+	end
+	return false
+end
  
-function give( element, item, val, name, value2 )
+function give( element, item, val, name, value2, ignoreWeight )
 	if load( element ) then
 		if type( item ) == 'number' and ( type( val ) == "number" or type( val ) == "string" ) then
+			if not ignoreWeight and outputWeightError( element, item, val, name, value2 ) then
+				return false, "Too much weight"
+			end
 			name2 = "NULL"
 			if name then
 				name2 = "'" .. exports.sql:escape_string( tostring( name ) ) .. "'"
@@ -745,15 +865,7 @@ addEventHandler( "items:use", root,
 						local sql = exports.sql:query_assoc("SELECT * FROM items WHERE item = 29")
 						for k, v in ipairs(sql) do
 							if exports.players:getCharacterID(source) == tonumber(v.owner) and tonumber(value) == tonumber(v.value) and tonumber(value2) == tonumber(v.value2) then		
-								local wSlot = getSlotFromWeapon(value)
-								local armaFromSlot = getPedWeapon(source, wSlot)
-								local balasFromArma = getPedTotalAmmo(source, wSlot)
-								if armaFromSlot and armaFromSlot ~= 0 and balasFromArma ~= 0 then 
-									outputChatBox("No puedes sacar dos armas iguales para fusionar balas. Incidente reportado.", source, 255, 0, 0)
-									exports.logs:addLogMessage("bugs", "El jugador " .. getPlayerName(source) .. " ha intentado bugear el sistema de armas #4 Fusionar balas de dos pistolas.")
-									return
-								else
-									if purgaVar == false then
+								if purgaVar == false then
 										if (value == 32 or value == 26 or value == 33) then
 											outputChatBox("Este arma sólo puede ser utilizada en eventos.", source, 255, 0, 0)
 											purgaVar = true -- Desbug rapido.
@@ -765,7 +877,16 @@ addEventHandler( "items:use", root,
 											return
 										end
 									end
+
+									local savedOk, savedAny = guardarArmasEquipadas(source, value)
+									if not savedOk then
+										return
+									end
+
 									take(source, slot)
+									if savedAny then
+										outputChatBox("Tu arma anterior se guardÃ³ automaticamente en el inventario.", source, 0, 255, 0)
+									end
 									exports.chat:me(source, "saca su "..getWeaponNameFromID(value).." y le quita el seguro.", "(Arma)")
 									if tonumber(v.value2) <= 1 then
 										outputChatBox("Has sacado tu "..getWeaponNameFromID(value).." sin balas. Pulsa 'R' para recargarla. Utiliza /guardararma para guardarla.", source, 0, 255, 0)
@@ -777,7 +898,6 @@ addEventHandler( "items:use", root,
 									if tonumber(value) == 41 then
 										outputChatBox("Comandos: /pintar /borrar /copiar /tam (sólo facciones oficiales ilegales)", source, 0, 255, 0)
 									end
-								end
 							end
 						end	
 					elseif id == 30 then -- Kit buceo
@@ -1021,7 +1141,7 @@ function guardarArma (player)
 		exports.chat:me(player, "guarda su "..getWeaponNameFromID(weapon)..".", "(/guardararma)")
 		outputChatBox("Has guardado tu "..getWeaponNameFromID(weapon).." con "..ammo.." balas.", player, 0, 255, 0)		
 		local name = "Arma "..tostring(weapon)
-		give(player, 29, tonumber(weapon), tostring(name), tonumber(ammo))
+		give(player, 29, tonumber(weapon), tostring(name), tonumber(ammo), true)
 		takeWeapon(player, weapon)
 	end
 end
@@ -1033,7 +1153,7 @@ function guardarArmas (player)
 		local ammo = getPedTotalAmmo(player, i)
 		if weapon and weapon >= 1 then
 			local name = "Arma "..tostring(weapon)
-			give(player, 29, tonumber(weapon), tostring(name), tonumber(ammo))
+			give(player, 29, tonumber(weapon), tostring(name), tonumber(ammo), true)
 			takeWeapon(player, weapon)
 		end
 	end
@@ -1054,7 +1174,7 @@ function guardarArmas2 (player)
 				outputChatBox("Has guardado tu "..getWeaponNameFromID(weapon).." sin balas.", player, 0, 255, 0)
 			end
 			local name = "Arma "..tostring(weapon)
-			give(player, 29, tonumber(weapon), tostring(name), tonumber(ammo))
+			give(player, 29, tonumber(weapon), tostring(name), tonumber(ammo), true)
 			takeWeapon(player, weapon)
 		end
 	end
@@ -1288,6 +1408,7 @@ function darItemAUsuario(player,cmd,id)
 	local distance = getDistanceBetweenPoints3D(x, y, z, x2, y2, z2)
 	if distance > 3 then outputChatBox("El jugador seleccionado está demasiado lejos.", player, 255, 0, 0) return end
 	if not getElementData(player, "daritem.id") then outputChatBox("Selecciona primero un item desde el inventario", player, 255, 0, 0) return end
+	if outputWeightError( otro, getElementData(player, "daritem.id"), getElementData(player, "daritem.value"), tostring(getElementData(player, "daritem.name")), tonumber(getElementData(player, "daritem.value2")) ) then return end
 	if take2( player, getElementData(player, "daritem.id"), getElementData(player, "daritem.value"), true) then
 		if getElementData(player, "daritem.value2") then
 			give( otro, getElementData(player, "daritem.id"), getElementData(player, "daritem.value"), tostring(getElementData(player, "daritem.name")), tonumber(getElementData(player, "daritem.value2")) )
@@ -1389,19 +1510,22 @@ addEventHandler( "items:getFromMaletero", root,
 		if source and exports.players:isLoggedIn( source ) and client == source and slot then
 			local sql = exports.sql:query_assoc("SELECT * FROM maleteros WHERE `index` = "..slot)
 			for k, v in ipairs(sql) do
+				local moved = false
 				-- PARCHE SISTEMA MÓVIL --
 				if v.item == 7 then
-					give( source, v.item, string.format("%13.0f",v.value), (tostring(v.name) or exports.items:getName( v.item )), tonumber(v.value2))
+					moved = give( source, v.item, string.format("%13.0f",v.value), (tostring(v.name) or exports.items:getName( v.item )), tonumber(v.value2))
 				else
 					if tonumber(v.value) ~= nil then
-						give( source, v.item, tonumber(v.value), (tostring(v.name) or exports.items:getName( v.item )), tonumber(v.value2))
+						moved = give( source, v.item, tonumber(v.value), (tostring(v.name) or exports.items:getName( v.item )), tonumber(v.value2))
 					else
-						give( source, v.item, tostring(v.value), (tostring(v.name) or exports.items:getName( v.item )), tonumber(v.value2))
+						moved = give( source, v.item, tostring(v.value), (tostring(v.name) or exports.items:getName( v.item )), tonumber(v.value2))
 					end
 				end
 				-- FIN PARCHE --
-				exports.chat:me(source, "saca un/a "..(v.name or exports.items:getName( v.item )).." del maletero.")
-				exports.sql:query_free("DELETE FROM maleteros WHERE `index` = "..slot)
+				if moved then
+					exports.chat:me(source, "saca un/a "..(v.name or exports.items:getName( v.item )).." del maletero.")
+					exports.sql:query_free("DELETE FROM maleteros WHERE `index` = "..slot)
+				end
 			end
 			local sql2 = exports.sql:query_assoc("SELECT `index`, item, value, value2, name FROM maleteros WHERE vehicleID = "..getElementData(source, "mid"))
 			triggerClientEvent(source, "onAbrirMaletero", source, source, getElementData(source, "mid"), 2, sql2)

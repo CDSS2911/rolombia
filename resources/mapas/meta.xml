@@ -1,15 +1,19 @@
 <meta>
     <info type="map" version="1.0.0"></info>
     
-    <!--Exteriores -->
+    <!--
+    Mapeos desactivados para iniciar el servidor con el mapa limpio.
+    Reactivar aqui solo los mapas que se quieran conservar.
+
+    Exteriores
     <map src="Exteriores/mapeoGeneral.map" dimension="0"></map>
     <map src="Exteriores/Playa-Palomino.map" dimension="0"></map>
     <map src="Exteriores/Skate-Park.map" dimension="0"></map>
     <map src="Exteriores/TTL-MontGomery.map" dimension="0"></map>
-    <!--<map src="Exteriores/Hallown.map" dimension="0"></map>
-    <map src="Exteriores/Fixeo-Hallown.map" dimension="0"></map>-->
+    <map src="Exteriores/Hallown.map" dimension="0"></map>
+    <map src="Exteriores/Fixeo-Hallown.map" dimension="0"></map>
     
-    <!--Interiores -->
+    Interiores
     <map src="Interiores/Interior-Corte.map" dimension="-1"></map>
     <map src="Interiores/Interior-Biblioteca.map" dimension="-1"></map>
     <map src="Interiores/Interior-Ayuntamiento.map" dimension="-1"></map>
@@ -35,18 +39,19 @@
     <map src="Interiores/Interior-Casa1.map" dimension="-1"></map>
     <map src="Interiores/Interior-Casino1.map" dimension="-1"></map>
     <map src="Interiores/Interior-Garage4.map" dimension="-1"></map>
-    <!--<map src="Interiores/Interior-Garage5.map" dimension="-1"></map> Incidencia #118-->
+    <map src="Interiores/Interior-Garage5.map" dimension="-1"></map> Incidencia #118
     <map src="Interiores/Interior-Garage6.map" dimension="-1"></map>
     <map src="Interiores/Interior-Almacen1.map" dimension="-1"></map>
     <map src="Interiores/Interior-Gym.map" dimension="-1"></map>
     <map src="Interiores/Interior-Perrera.map" dimension="-1"></map>
     <map src="Interiores/Interior-UFC.map" dimension="-1"></map>
     
-    <!--Interiores parcheados y Garages Interiores - Almacenes - Gimnasios -->
+    Interiores parcheados y Garages Interiores - Almacenes - Gimnasios
     <map src="Interiores/Parche-Bar3.map" dimension="-1"></map>
     <map src="Interiores/Parche-Garaje1.map" dimension="-1"></map>
     <map src="Interiores/Parche-Garaje2.map" dimension="-1"></map>
     <map src="Interiores/Parche-Garaje3.map" dimension="-1"></map>
+    -->
     
     
     <settings>
@@ -59,6 +64,7 @@
         <setting name="#time" value="11:0"></setting>
         <setting name="#locked_time" value="[ false ]"></setting>
     </settings>
-    <script src="mapEditorScriptingExtension_s.lua" type="server"></script>
-    <script src="mapEditorScriptingExtension_c.lua" type="client" validate="false" size="953"></script>
+    <!-- Scripts de mapeo desactivados junto con los .map. -->
+    <!-- <script src="mapEditorScriptingExtension_s.lua" type="server"></script> -->
+    <!-- <script src="mapEditorScriptingExtension_c.lua" type="client" validate="false" size="953"></script> -->
 </meta>

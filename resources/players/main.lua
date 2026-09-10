@@ -383,13 +383,33 @@ local function getPlayerHash( player, remoteIP )
 	return ip:sub(ip:find("%d+%.%d+%.")) .. ( getPlayerSerial( player ) or "R0FLR0FLR0FLR0FLR0FLR0FLR0FLR0FL" ) .. tostring( serverToken )
 end
 
+local function getForumPasswordHash( password, salt )
+	return string.upper( hash( "sha1", tostring( salt ) .. hash( "sha1", tostring( salt ) .. hash( "sha1", tostring( password ) ) ) ) )
+end
+
+local function getLoginToken( player, username, passwordHash, salt, remoteIP )
+	local playerHash = getPlayerHash( player, remoteIP )
+	local tokenPart = string.upper( hash( "sha1", tostring( username ) .. playerHash ) )
+	local passwordPart = string.upper( hash( "sha1", tostring( salt ) .. hash( "sha1", playerHash .. hash( "sha1", tostring( salt ) .. hash( "sha1", tostring( username ) .. hash( "sha1", tostring( passwordHash ) ) ) ) ) ) )
+	return tokenPart .. passwordPart
+end
+
+local function getMtaSalt( username, passwordHash, salt )
+	return string.sub( string.lower( hash( "sha1", tostring( username ) .. hash( "sha1", tostring( passwordHash ) .. tostring( salt ) ) ) ), 1, 30 )
+end
+
 addEvent( getResourceName( resource ) .. ":login", true )
 addEventHandler( getResourceName( resource ) .. ":login", root,
 	function( username, password )
 		if (source == client) or (source and not client) then
 			triedTokenAuth[ source ] = true
 			if username and password and #username > 0 and #password > 0 then
-				local info, error = exports.sql:query_assoc_single( "SELECT CONCAT(SHA1(CONCAT(username, '%s')),SHA1(CONCAT(salt, SHA1(CONCAT('%s',SHA1(CONCAT(salt, SHA1(CONCAT(username, SHA1(password)))))))))) AS token FROM wcf1_user WHERE `username` = '%s' AND password = SHA1(CONCAT(salt, SHA1(CONCAT(salt, '" .. hash("sha1", password) .. "'))))", getPlayerHash( source ), getPlayerHash( source ), username )
+				username = tostring( username ):gsub( "^%s*(.-)%s*$", "%1" )
+				local user = exports.sql:query_assoc_single( "SELECT userID, username, password, salt FROM wcf1_user WHERE username = '%s' LIMIT 1", username )
+				local info = false
+				if user and string.lower( tostring( user.password ) ) == string.lower( getForumPasswordHash( password, user.salt ) ) then
+					info = { token = getLoginToken( source, user.username, user.password, user.salt ), userID = user.userID }
+				end
 				p[ source ] = nil
 				if not info then
 					triggerClientEvent( source, getResourceName( resource ) .. ":loginResult", source, 1 ) -- Wrong username/password
@@ -403,19 +423,38 @@ addEventHandler( getResourceName( resource ) .. ":login", root,
 					end
 				else
 					loginAttempts[ source ] = nil
-					performLogin( source, info.token, true )
+					performLogin( source, info.token, true, nil, info.userID )
 				end
 			end
 		end
 	end
 )
 -- performLogin( source, token, false, ip )
-function performLogin( source, token, isPasswordAuth, ip )
+function performLogin( source, token, isPasswordAuth, ip, userID )
 	if source and ( isPasswordAuth or not triedTokenAuth[ source ] ) then
 		triedTokenAuth[ source ] = true
 		if token then
 			if #token == 80 then
-				local info = exports.sql:query_assoc_single( "SELECT userID, username, banned, activationCode, activationReason, SUBSTRING(LOWER(SHA1(CONCAT(userName,SHA1(CONCAT(password,salt))))),1,30) AS salts, userOptions FROM wcf1_user WHERE CONCAT(SHA1(CONCAT(username, '%s')),SHA1(CONCAT(salt, SHA1(CONCAT('%s',SHA1(CONCAT(salt, SHA1(CONCAT(username, SHA1(password)))))))))) = '%s' LIMIT 1", getPlayerHash( source, ip ), getPlayerHash( source, ip ), token )
+				local info = false
+				if userID then
+					info = exports.sql:query_assoc_single( "SELECT userID, username, password, salt, banned, activationCode, activationReason, userOptions FROM wcf1_user WHERE userID = " .. tonumber( userID ) .. " LIMIT 1" )
+					if info then
+						info.salts = getMtaSalt( info.username, info.password, info.salt )
+					end
+				else
+					local tokenUser = token:sub( 1, 40 )
+					local playerHash = getPlayerHash( source, ip )
+					local users = exports.sql:query_assoc( "SELECT userID, username, password, salt, banned, activationCode, activationReason, userOptions FROM wcf1_user" )
+					if users then
+						for key, value in ipairs( users ) do
+							if string.lower( hash( "sha1", tostring( value.username ) .. playerHash ) ) == string.lower( tokenUser ) and string.lower( getLoginToken( source, value.username, value.password, value.salt, ip ) ) == string.lower( token ) then
+								value.salts = getMtaSalt( value.username, value.password, value.salt )
+								info = value
+								break
+							end
+						end
+					end
+				end
 				p[ source ] = nil
 				if not info then
 					if isPasswordAuth then

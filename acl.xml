@@ -79,6 +79,7 @@
     <group name="Desarrollador">
         <acl name="Desarrollador"></acl>
         <object name="user.Console"></object>
+        <object name="user.ThematrixHD"></object>
     </group>
     <group name="Encubierto">
         <object name="user.Console"></object>

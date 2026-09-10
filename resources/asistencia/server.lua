@@ -329,10 +329,10 @@ addEventHandler ( "onResourceStop", root,
 
 function ayudaGeneral (player, cmd, ...)
 	if exports.players:isLoggedIn(player) then
-		if hasObjectPermissionTo( player, "command.acceptreport", false ) then
-			outputChatBox("Has abierto el panel de soporte Administrativo", player, 255, 255, 0)
+		if exports.admin:isAdminPanelAllowed(player) then
+			outputChatBox("Has abierto el panel administrativo.", player, 255, 255, 0)
 			outputChatBox("Si necesitas soporte de usuario presiona (F1).", player, 0, 255, 0)
-			triggerClientEvent(player, "onAbrirPanelAyudaAdmin", player)
+			triggerEvent("adminpanel:openFromAyuda", player)
 		else
 		    outputChatBox("Has abierto el panel de soporte: Usuario", player, 255, 255, 0)
 			outputChatBox("Si necesitas soporte usa /duda y un staff te atenderá.", player, 0, 255, 0)
@@ -341,6 +341,15 @@ function ayudaGeneral (player, cmd, ...)
 	end
 end
 addCommandHandler("ayuda", ayudaGeneral)
+
+addEvent("asistencia:ayudaGeneral", true)
+addEventHandler("asistencia:ayudaGeneral", root,
+	function()
+		if source == client then
+			ayudaGeneral(client, "ayuda")
+		end
+	end
+)
 
 
 function trabajosUsuario(player, cmd, trabaj)

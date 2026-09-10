@@ -7,7 +7,8 @@ end
 addEvent("onRequestLoginPanel",true)
 addEventHandler("onRequestLoginPanel",getRootElement(),
 function()
-	local query = exports.sql:query_assoc_single("SELECT `userID`  FROM `wcf1_user` WHERE `lastSerial` OR `regSerial` LIKE '%s'", getPlayerSerial(client))
+	local serial = getPlayerSerial(client)
+	local query = exports.sql:query_assoc_single("SELECT `userID` FROM `wcf1_user` WHERE `lastSerial` = '%s' OR `regSerial` = '%s' OR `regSerial2` = '%s' LIMIT 1", serial, serial, serial)
 	local serialRegistered = false
 	if query then
 		if query.userID then
@@ -15,7 +16,7 @@ function()
 		end
 	end
 	--serialRegistered
-	triggerClientEvent(client,"client:init:callBack",client,false)
+	triggerClientEvent(client,"client:init:callBack",client,serialRegistered)
 end
 )
 
@@ -36,7 +37,8 @@ end
 addEvent("server:forgotpass",true)
 addEventHandler("server:forgotpass",root,
 function(username)
-	local query = exports.sql:query_assoc_single("SELECT `username` FROM `wcf1_user` WHERE `regSerial` LIKE '%s'", getPlayerSerial(client))
+	local serial = getPlayerSerial(client)
+	local query = exports.sql:query_assoc_single("SELECT `username` FROM `wcf1_user` WHERE `regSerial` = '%s' OR `regSerial2` = '%s' LIMIT 1", serial, serial)
 	local usernameValidation = false
 	if query then
 		if query.username and tostring(query.username) == tostring(username) then
@@ -50,7 +52,8 @@ end
 addEvent("server:changePassword",true)
 addEventHandler("server:changePassword",root,
 function(username,password)
-	local query = exports.sql:query_assoc_single("SELECT `username` FROM `wcf1_user` WHERE `regSerial` LIKE '%s'", getPlayerSerial(client))
+	local serial = getPlayerSerial(client)
+	local query = exports.sql:query_assoc_single("SELECT `username` FROM `wcf1_user` WHERE `regSerial` = '%s' OR `regSerial2` = '%s' LIMIT 1", serial, serial)
 	local usernameValidation = false
 	if query then
 		if query.username and query.username == username then

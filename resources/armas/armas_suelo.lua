@@ -106,9 +106,10 @@ function recogerArma ( thePlayer )
 				if (exports.players:getCharacterID(thePlayer) == sql.characterID) or getElementData(thePlayer, "account:gmduty") == true then
 					exports.chat:me ( thePlayer, "recoge un arma del suelo." )
 					setPedAnimation ( thePlayer, "BOMBER", "BOM_Plant", 3000, false )
-					exports.items:give( thePlayer , 29, tostring(sql.model), "Arma " .. tostring(sql.model), sql.ammo)
-					exports.sql:query_free( "DELETE FROM armas_suelo WHERE ID = " .. sql.ID )
-					destroyElement ( v )
+					if exports.items:give( thePlayer , 29, tostring(sql.model), "Arma " .. tostring(sql.model), sql.ammo) then
+						exports.sql:query_free( "DELETE FROM armas_suelo WHERE ID = " .. sql.ID )
+						destroyElement ( v )
+					end
 				else
 					outputChatBox("Este arma no es tuya.", thePlayer, 255, 0, 0)
 				end
